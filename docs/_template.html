@@ -222,7 +222,7 @@ summary{cursor:pointer;color:var(--s1);font-size:13.5px}
   <h2>Robustness</h2>
   <p class="sub">A result that only survives at one setting is a curve fit. These are the same
   rules with one knob moved at a time.</p>
-  <div class="card"><div class="tbl-wrap"><table id="robust"></table></div></div>
+  <div class="card"><div class="tbl-wrap"><table id="robustTbl"></table></div></div>
   <div class="grid2">
     <div class="card"><h3>Turnover &amp; cost</h3><div class="tbl-wrap"><table id="turn"></table></div></div>
     <div class="card"><h3>Where it traded</h3>
@@ -503,6 +503,7 @@ function histChart(hostId, values, marker, markerLabel){
 /* ---------- tables ---------- */
 function table(id, cols, rows){
   const t=$('#'+id);
+  if(!t){ console.warn('no table element #'+id); return; }
   t.innerHTML='<thead><tr>'+cols.map(c=>`<th>${c.h}</th>`).join('')+'</tr></thead>'+
     '<tbody>'+rows.map(r=>'<tr>'+cols.map(c=>{
       const v=c.f?c.f(r):r[c.k];
@@ -594,7 +595,7 @@ function build(){
   ],D.splits);
 
   const base={...D.summary,label:'Base case (as specified)'};
-  table('robust',[
+  table('robustTbl',[
     {h:'Variant',k:'label'},{h:'CAGR',f:r=>pct(r.cagr),cls:r=>sign(r.cagr)},
     {h:'Max DD',f:r=>pct(r.max_drawdown),cls:()=>'neg'},
     {h:'MAR',f:r=>num(r.mar)},{h:'Sharpe',f:r=>num(r.sharpe)},
@@ -676,7 +677,14 @@ function build(){
 
   drawAll();
 }
-build();
+try{ build(); }
+catch(err){
+  console.error(err);
+  const b=document.createElement('p');
+  b.style.cssText='color:var(--crit);padding:12px;border:1px solid var(--crit);border-radius:8px';
+  b.textContent='Render error: '+err.message;
+  document.querySelector('main').prepend(b);
+}
 $('#scaleToggle').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   scale=b.dataset.scale;
