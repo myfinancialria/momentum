@@ -199,6 +199,13 @@ summary{cursor:pointer;color:var(--s1);font-size:13.5px}
   this window, and equal weighting leans into them. So "it beat the index" proves very little.
   The real test is where the ruleset lands inside the distribution of random portfolios that
   passed the same liquidity and trend filters.</p>
+  <p class="sub"><strong>What this null does and doesn't test.</strong> The random portfolios are
+  drawn from names that already passed every filter — above the 200-day average, liquid enough,
+  no spike — and only the <em>ranking</em> is randomised. So this measures what the momentum
+  score adds <em>on top of</em> the filters, which is the strict reading. It does not credit the
+  score for the filters' own contribution; the trend filter alone is doing real work, and the
+  "raw 12-1, no vol divisor" row in the robustness table is what isolates the volatility
+  divisor.</p>
   <div class="card">
     <figure>
       <figcaption>CAGR of <span id="nullN"></span> random 25-stock portfolios vs the ruleset</figcaption>

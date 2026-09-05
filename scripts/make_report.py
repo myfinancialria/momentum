@@ -56,6 +56,12 @@ A("An equal-weight basket of *randomly chosen* stocks from this universe beat th
   "weighting leans into them. So \"it beat the index\" proves very little. The test that matters "
   "is where the ruleset lands inside the distribution of random portfolios drawn from the same "
   "eligible names on the same dates.\n")
+A("**What this null does and does not test.** The random portfolios are drawn from names that "
+  "already passed every filter — above the 200-day average, liquid enough, no spike — and only "
+  "the *ranking* is randomised. So the percentile below measures what the momentum score adds "
+  "*on top of* the filters, which is the strict reading. It gives the score no credit for the "
+  "filters' own contribution. The `Raw 12-1 (no vol divisor)` row in the robustness table is "
+  "what isolates the volatility divisor specifically.\n")
 A(f"- {N['n']} random 25-stock portfolios: median CAGR **{pc(N['median_cagr'])}**, "
   f"5th–95th percentile {pc(N['p05_cagr'])} to {pc(N['p95_cagr'])}.")
 A(f"- The ruleset's {pc(S['cagr'])} sits at the **{N['cagr_percentile']:.0f}th percentile** of that distribution.")
