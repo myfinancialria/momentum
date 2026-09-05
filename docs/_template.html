@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NSE Momentum — screener, ranking &amp; 8-year backtest</title>
+<meta name="description" content="A risk-adjusted momentum screener for NSE equities, ranked and backtested against a point-in-time NIFTY 500 with a random-portfolio null.">
+<style>
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --plane:#f9f9f7;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s7:#4a3aa7;
+  --good:#0ca30c; --crit:#d03b3b; --warn:#fab219;
+  --up:#006300;
+  --band:rgba(42,120,214,0.10);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --surface-1:#1a1a19; --plane:#0d0d0d;
+    --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s7:#9085e9;
+    --up:#0ca30c; --band:rgba(57,135,229,0.14);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --plane:#0d0d0d;
+  --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s7:#9085e9;
+  --up:#0ca30c; --band:rgba(57,135,229,0.14);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);font:15px/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased}
+a{color:var(--s1)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--border);background:var(--surface-1);
+  position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.2)}
+header.top .wrap{display:flex;align-items:center;gap:18px;height:52px}
+.brand{font-weight:650;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-weight:400}
+nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:var(--ink-2);text-decoration:none;font-size:13.5px}
+nav a:hover{color:var(--s1)}
+#themeBtn{background:none;border:1px solid var(--border);color:var(--ink-2);
+  border-radius:6px;padding:3px 8px;cursor:pointer;font-size:12px}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.022em;margin:0 0 12px}
+h2{font-size:22px;letter-spacing:-.015em;margin:0 0 6px}
+h3{font-size:15.5px;margin:22px 0 6px;letter-spacing:-.005em}
+.lede{font-size:17px;color:var(--ink-2);max-width:68ch;margin:0 0 20px}
+section{padding:38px 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:0}
+.sub{color:var(--ink-2);max-width:72ch;margin:0 0 18px}
+.note{color:var(--muted);font-size:13px;max-width:74ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.tile{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.tile .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.055em;color:var(--muted)}
+.tile .v{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-top:3px}
+.tile .d{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;
+  padding:18px;margin:18px 0}
+.card > h3:first-child{margin-top:0}
+figure{margin:0}
+figcaption{font-size:13px;color:var(--ink-2);margin-bottom:10px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:0 0 8px}
+.legend b{display:inline-block;width:11px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.legend .sw{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.tip{position:absolute;pointer-events:none;background:var(--surface-1);
+  border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;
+  box-shadow:0 6px 20px rgba(0,0,0,.13);opacity:0;transition:opacity .09s;z-index:5;
+  white-space:nowrap;font-variant-numeric:tabular-nums}
+.tip .r{display:flex;justify-content:space-between;gap:14px}
+.tip .r b{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:6px}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:600;border-bottom:1px solid var(--axis)}
+tbody tr:hover{background:color-mix(in srgb,var(--s1) 6%,transparent)}
+td.sym{font-weight:600}
+td.name{color:var(--ink-2);max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pos{color:var(--up)} .neg{color:var(--crit)}
+.rules{background:var(--surface-1);border:1px solid var(--border);border-left:3px solid var(--s1);
+  border-radius:10px;padding:16px 18px;font-family:var(--mono);font-size:13px;
+  line-height:1.75;white-space:pre-wrap;overflow-x:auto}
+.rules .h{color:var(--s1);font-weight:700}
+.rules .c{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;
+  border:1px solid var(--border);color:var(--ink-2);background:var(--plane)}
+.pill.ok{color:var(--up);border-color:color-mix(in srgb,var(--up) 40%,transparent)}
+.pill.bad{color:var(--crit);border-color:color-mix(in srgb,var(--crit) 40%,transparent)}
+.caveat{border-left:3px solid var(--warn);padding:2px 0 2px 14px;margin:14px 0;color:var(--ink-2)}
+.caveat b{color:var(--ink)}
+footer{border-top:1px solid var(--border);padding:26px 0 46px;color:var(--muted);font-size:13px}
+.toggle{display:flex;gap:6px;margin:0 0 10px}
+.toggle button{font:inherit;font-size:12.5px;padding:4px 11px;border-radius:7px;cursor:pointer;
+  border:1px solid var(--border);background:var(--surface-1);color:var(--ink-2)}
+.toggle button[aria-pressed="true"]{background:var(--s1);border-color:var(--s1);color:#fff}
+details{margin:10px 0}
+summary{cursor:pointer;color:var(--s1);font-size:13.5px}
+.hero-fig{font-size:clamp(40px,7vw,64px);font-weight:640;letter-spacing:-.03em;line-height:1}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand">NSE Momentum <span>/ risk-adjusted</span></div>
+  <nav>
+    <a href="#rules">Rules</a><a href="#results">Results</a><a href="#honest">Vs random</a>
+    <a href="#robust">Robustness</a><a href="#screen">Live screen</a><a href="#method">Method</a>
+    <button id="themeBtn" type="button">Theme</button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<section id="top">
+  <h1>Momentum, ranked by return per unit of risk</h1>
+  <p class="lede">A rules-based screener for NSE equities: rank the point-in-time NIFTY 500 by
+  12-month return (skipping the last month) divided by volatility, hold the top 25 equally,
+  rebalance monthly. Backtested over <span id="yrsSpan">8+</span> years against the index
+  <em>and</em> against a few hundred random portfolios drawn from the same universe — because
+  in a mid-cap-heavy market, beating the index is a much lower bar than it sounds.</p>
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="covNote"></p>
+</section>
+
+<section id="rules">
+  <h2>The rules</h2>
+  <p class="sub">Every number here is read from one config file, so the rules on this page and
+  the rules in the backtest cannot drift apart.</p>
+  <div class="rules" id="rulesBox"></div>
+</section>
+
+<section id="results">
+  <h2>Results</h2>
+  <p class="sub">Growth of ₹1, net of costs. The shaded band is the 5th–95th percentile of
+  random 25-stock portfolios drawn from the same eligible universe on the same dates.</p>
+  <div class="card">
+    <figure>
+      <figcaption>Growth of ₹1 — <span id="capDates"></span>, log scale, after <span id="capCost"></span> bps/side costs</figcaption>
+      <div class="toggle" id="scaleToggle">
+        <button type="button" data-scale="log" aria-pressed="true">Log</button>
+        <button type="button" data-scale="lin" aria-pressed="false">Linear</button>
+      </div>
+      <div class="legend">
+        <span><b style="background:var(--s1)"></b>Momentum 25</span>
+        <span><b style="background:var(--s2)"></b>NIFTY 500</span>
+        <span><span class="sw" style="background:var(--band);border:1px solid var(--s1)"></span>Random 5–95%</span>
+      </div>
+      <div class="chart" id="equity"><div class="tip"></div></div>
+    </figure>
+  </div>
+  <div class="card">
+    <figure>
+      <figcaption>Drawdown from peak — the part you actually have to sit through</figcaption>
+      <div class="legend">
+        <span><b style="background:var(--s1)"></b>Momentum 25</span>
+        <span><b style="background:var(--s2)"></b>NIFTY 500</span>
+      </div>
+      <div class="chart" id="dd"><div class="tip"></div></div>
+    </figure>
+  </div>
+  <div class="card">
+    <figure>
+      <figcaption>Calendar-year returns (first and last years partial)</figcaption>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--s1)"></span>Momentum 25</span>
+        <span><span class="sw" style="background:var(--s2)"></span>NIFTY 500</span>
+      </div>
+      <div class="chart" id="yearly"><div class="tip"></div></div>
+    </figure>
+  </div>
+  <div class="card">
+    <h3>Head to head</h3>
+    <div class="tbl-wrap"><table id="hh"></table></div>
+  </div>
+  <details>
+    <summary>Month-by-month returns</summary>
+    <div class="tbl-wrap"><table id="monthly"></table></div>
+  </details>
+</section>
+
+<section id="honest">
+  <h2>The honest benchmark</h2>
+  <p class="sub">An equal-weight basket of <em>randomly chosen</em> stocks from this universe
+  beats the cap-weighted NIFTY 500 most of the time — small and mid caps outran large caps over
+  this window, and equal weighting leans into them. So "it beat the index" proves very little.
+  The real test is where the ruleset lands inside the distribution of random portfolios that
+  passed the same liquidity and trend filters.</p>
+  <div class="card">
+    <figure>
+      <figcaption>CAGR of <span id="nullN"></span> random 25-stock portfolios vs the ruleset</figcaption>
+      <div class="chart" id="null"><div class="tip"></div></div>
+    </figure>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Split sample</h3>
+      <p class="note">The single most useful robustness check: does the edge show up in both
+      halves, or is it one lucky stretch?</p>
+      <div class="tbl-wrap"><table id="splits"></table></div>
+    </div>
+    <div class="card"><h3>Rolling 3-year CAGR</h3>
+      <p class="note">Every 3-year holding period inside the test, annualised.</p>
+      <div class="chart" id="rolling"><div class="tip"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="robust">
+  <h2>Robustness</h2>
+  <p class="sub">A result that only survives at one setting is a curve fit. These are the same
+  rules with one knob moved at a time.</p>
+  <div class="card"><div class="tbl-wrap"><table id="robust"></table></div></div>
+  <div class="grid2">
+    <div class="card"><h3>Turnover &amp; cost</h3><div class="tbl-wrap"><table id="turn"></table></div></div>
+    <div class="card"><h3>Where it traded</h3>
+      <p class="note">Share of all monthly holdings by NSE industry.</p>
+      <div class="chart" id="sector"><div class="tip"></div></div>
+    </div>
+  </div>
+  <details><summary>Names held most often</summary>
+    <div class="tbl-wrap"><table id="held"></table></div>
+  </details>
+</section>
+
+<section id="screen">
+  <h2>Live screen</h2>
+  <p class="sub">The ruleset applied to the most recent close in the dataset
+  (<span id="screenDate"></span>). The top 25 is what the strategy would hold at the next
+  month-end rebalance. This is research output, not advice.</p>
+  <div class="card"><div class="tbl-wrap"><table id="screenTbl"></table></div></div>
+  <p class="note">Download: <a href="current_screen.csv">current_screen.csv</a> ·
+  <a href="data.json">data.json</a> · <a href="equity_curve.csv">equity_curve.csv</a></p>
+</section>
+
+<section id="method">
+  <h2>Method &amp; caveats</h2>
+  <div id="methodBox"></div>
+</section>
+
+</main>
+<footer><div class="wrap">
+  <p>Generated <span id="genDate"></span> · Source and code:
+  <a href="https://github.com/myfinancialria/momentum">github.com/myfinancialria/momentum</a></p>
+  <p>Research and education only. Backtested results are hypothetical, contain no live
+  execution, and are not a recommendation to buy or sell any security.</p>
+</div></footer>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('payload').textContent);
+const $ = s => document.querySelector(s);
+const pct = (x, d=1) => x==null || isNaN(x) ? '—' : (x*100).toFixed(d)+'%';
+const num = (x, d=2) => x==null || isNaN(x) ? '—' : (+x).toFixed(d);
+const sign = x => x==null?'':(x>=0?'pos':'neg');
+
+/* ---------- theme ---------- */
+const bt = $('#themeBtn');
+bt.onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const next = cur ? (cur==='dark'?'light':'dark') : (sysDark?'light':'dark');
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('mom-theme', next); }catch(e){}
+  drawAll();
+};
+try{ const t=localStorage.getItem('mom-theme'); if(t) document.documentElement.setAttribute('data-theme',t); }catch(e){}
+const css = v => getComputedStyle(document.body).getPropertyValue(v).trim();
+
+/* ---------- svg helpers ---------- */
+const NS='http://www.w3.org/2000/svg';
+function el(n,a){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgFor(host,h){
+  host.querySelectorAll('svg').forEach(s=>s.remove());
+  const w = host.clientWidth || 720;
+  const s = el('svg',{viewBox:`0 0 ${w} ${h}`,width:w,height:h,role:'img'});
+  host.appendChild(s); return {s,w,h};
+}
+function axisText(s,x,y,t,anchor='middle',cls=''){
+  const e=el('text',{x,y,'text-anchor':anchor,'font-size':11,fill:css('--muted'),
+    'font-family':css('--sans')}); e.textContent=t; if(cls)e.setAttribute('class',cls); s.appendChild(e); return e;
+}
+function tipFor(host){ return host.querySelector('.tip'); }
+function showTip(host,html,x,y){
+  const t=tipFor(host); t.innerHTML=html; t.style.opacity=1;
+  const r=host.getBoundingClientRect(); const tw=t.offsetWidth, th=t.offsetHeight;
+  let left=x+14; if(left+tw>r.width) left=x-tw-14; if(left<0) left=0;
+  let top=y-th-12; if(top<0) top=y+16;
+  t.style.left=left+'px'; t.style.top=top+'px';
+}
+function hideTip(host){ tipFor(host).style.opacity=0; }
+const fmtD = d => { const dt=new Date(d+'T00:00:00');
+  return dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); };
+
+/* ---------- line chart (equity, drawdown, rolling) ---------- */
+function lineChart(hostId, series, opts={}){
+  const host=$('#'+hostId); const h=opts.h||300;
+  const {s,w}=svgFor(host,h);
+  const m={l:opts.ml||52,r:14,t:10,b:26};
+  const iw=w-m.l-m.r, ih=h-m.t-m.b;
+  const all=series.flatMap(x=>x.pts);
+  if(!all.length) return;
+  const xs=all.map(p=>+new Date(p.d));
+  const x0=Math.min(...xs), x1=Math.max(...xs);
+  let vals=all.map(p=>p.v);
+  if(opts.band){ vals=vals.concat(opts.band.p05.map(p=>p.v),opts.band.p95.map(p=>p.v)); }
+  let lo=opts.lo!=null?opts.lo:Math.min(...vals), hi=opts.hi!=null?opts.hi:Math.max(...vals);
+  const logS = opts.scale==='log';
+  const tv = v => logS ? Math.log(Math.max(v,1e-6)) : v;
+  const tlo=tv(lo), thi=tv(hi), pad=(thi-tlo)*0.06||1;
+  const X = d => m.l + (+new Date(d)-x0)/(x1-x0||1)*iw;
+  const Y = v => m.t + ih - (tv(v)-(tlo-pad))/((thi+pad)-(tlo-pad))*ih;
+
+  // gridlines + y labels
+  const ticks = opts.yticks || niceTicks(lo,hi,logS);
+  ticks.forEach(t=>{
+    const y=Y(t); if(y<m.t-1||y>m.t+ih+1) return;
+    s.appendChild(el('line',{x1:m.l,x2:m.l+iw,y1:y,y2:y,stroke:css('--grid'),'stroke-width':1}));
+    axisText(s,m.l-8,y+4,opts.yfmt?opts.yfmt(t):t,'end');
+  });
+  // x labels: one per year
+  const years={};
+  all.forEach(p=>{const y=p.d.slice(0,4); if(!years[y])years[y]=p.d;});
+  Object.entries(years).forEach(([y,d])=>{
+    const px=X(d);
+    s.appendChild(el('line',{x1:px,x2:px,y1:m.t,y2:m.t+ih,stroke:css('--grid'),'stroke-width':1}));
+    axisText(s,px,h-8,y);
+  });
+  // zero/baseline
+  if(opts.baseline!=null){
+    const y=Y(opts.baseline);
+    s.appendChild(el('line',{x1:m.l,x2:m.l+iw,y1:y,y2:y,stroke:css('--axis'),'stroke-width':1}));
+  }
+  // null band
+  if(opts.band){
+    const up=opts.band.p95.map(p=>`${X(p.d)},${Y(p.v)}`).join(' ');
+    const dn=opts.band.p05.slice().reverse().map(p=>`${X(p.d)},${Y(p.v)}`).join(' ');
+    s.appendChild(el('polygon',{points:up+' '+dn,fill:css('--band'),stroke:'none'}));
+    if(opts.band.p50){
+      s.appendChild(el('polyline',{points:opts.band.p50.map(p=>`${X(p.d)},${Y(p.v)}`).join(' '),
+        fill:'none',stroke:css('--s1'),'stroke-width':1,'stroke-dasharray':'3 3','opacity':.55}));
+    }
+  }
+  // series
+  series.forEach(ser=>{
+    const pts=ser.pts.map(p=>`${X(p.d)},${Y(p.v)}`).join(' ');
+    if(ser.area){
+      s.appendChild(el('polygon',{points:`${m.l},${Y(opts.baseline||0)} `+pts+` ${m.l+iw},${Y(opts.baseline||0)}`,
+        fill:ser.color,opacity:.10,stroke:'none'}));
+    }
+    s.appendChild(el('polyline',{points:pts,fill:'none',stroke:ser.color,'stroke-width':2,
+      'stroke-linejoin':'round','stroke-linecap':'round'}));
+  });
+  // hover
+  const cross=el('line',{x1:0,x2:0,y1:m.t,y2:m.t+ih,stroke:css('--axis'),'stroke-width':1,opacity:0});
+  s.appendChild(cross);
+  const dots=series.map(ser=>{const c=el('circle',{r:4,fill:ser.color,stroke:css('--surface-1'),
+    'stroke-width':2,opacity:0}); s.appendChild(c); return c;});
+  const hit=el('rect',{x:m.l,y:m.t,width:iw,height:ih,fill:'transparent'});
+  s.appendChild(hit);
+  const scaleX = () => (host.clientWidth||w)/w;
+  hit.addEventListener('pointermove',ev=>{
+    const r=host.getBoundingClientRect(); const px=(ev.clientX-r.left)/scaleX();
+    const t=x0+(px-m.l)/iw*(x1-x0);
+    let rows='';
+    series.forEach((ser,i)=>{
+      let best=ser.pts[0],bd=Infinity;
+      for(const p of ser.pts){const d=Math.abs(+new Date(p.d)-t); if(d<bd){bd=d;best=p;}}
+      dots[i].setAttribute('cx',X(best.d)); dots[i].setAttribute('cy',Y(best.v));
+      dots[i].setAttribute('opacity',1);
+      rows+=`<div class="r"><span><b style="background:${ser.color}"></b>${ser.name}</span>`+
+            `<span>${opts.tipfmt?opts.tipfmt(best.v):num(best.v)}</span></div>`;
+      if(i===0){ cross.setAttribute('x1',X(best.d)); cross.setAttribute('x2',X(best.d));
+        cross.setAttribute('opacity',1);
+        rows=`<div style="color:var(--muted);margin-bottom:4px">${fmtD(best.d)}</div>`+rows; }
+    });
+    showTip(host,rows,px*scaleX(),(ev.clientY-r.top));
+  });
+  hit.addEventListener('pointerleave',()=>{
+    hideTip(host); cross.setAttribute('opacity',0); dots.forEach(d=>d.setAttribute('opacity',0));
+  });
+}
+function niceTicks(lo,hi,logS){
+  const out=[];
+  if(logS){ let v=Math.pow(10,Math.floor(Math.log10(Math.max(lo,1e-6))));
+    while(v<=hi*1.5){ [1,2,5].forEach(k=>{const t=v*k; if(t>=lo*0.85&&t<=hi*1.08)out.push(t);}); v*=10; }
+    return out.length?out:[lo,hi];
+  }
+  const span=hi-lo, step=Math.pow(10,Math.floor(Math.log10(span/4)));
+  const mult=[1,2,2.5,5,10].find(m=>span/(step*m)<=6)||10;
+  const s2=step*mult;
+  for(let t=Math.ceil(lo/s2)*s2;t<=hi+1e-9;t+=s2) out.push(+t.toFixed(10));
+  return out;
+}
+
+/* ---------- grouped bars (yearly) ---------- */
+function barChart(hostId, cats, series, opts={}){
+  const host=$('#'+hostId); const h=opts.h||280;
+  const {s,w}=svgFor(host,h);
+  const m={l:50,r:12,t:12,b:28}, iw=w-m.l-m.r, ih=h-m.t-m.b;
+  const vals=series.flatMap(x=>x.vals).filter(v=>v!=null);
+  const lo=Math.min(0,...vals), hi=Math.max(0,...vals);
+  const ticks=niceTicks(lo,hi,false);
+  const Y=v=>m.t+ih-(v-lo)/((hi-lo)||1)*ih;
+  ticks.forEach(t=>{const y=Y(t);
+    s.appendChild(el('line',{x1:m.l,x2:m.l+iw,y1:y,y2:y,
+      stroke:t===0?css('--axis'):css('--grid'),'stroke-width':1}));
+    axisText(s,m.l-8,y+4,pct(t,0),'end');});
+  const bw=iw/cats.length, gap=Math.min(10,bw*0.22);
+  const inner=(bw-gap)/series.length;
+  cats.forEach((c,ci)=>{
+    axisText(s,m.l+bw*ci+bw/2,h-9,c);
+    series.forEach((ser,si)=>{
+      const v=ser.vals[ci]; if(v==null) return;
+      const x=m.l+bw*ci+gap/2+inner*si+1;
+      const y0=Y(0), y1=Y(v); const top=Math.min(y0,y1), hgt=Math.max(Math.abs(y1-y0),1.5);
+      const r=el('rect',{x,y:top,width:Math.max(inner-2,2),height:hgt,fill:ser.color,
+        rx:3,ry:3});
+      r.addEventListener('pointerenter',ev=>{
+        const rc=host.getBoundingClientRect();
+        showTip(host,`<div style="color:var(--muted);margin-bottom:4px">${c}</div>`+
+          series.map(x2=>`<div class="r"><span><b style="background:${x2.color}"></b>${x2.name}</span>`+
+          `<span>${pct(x2.vals[ci])}</span></div>`).join(''),
+          ev.clientX-rc.left, ev.clientY-rc.top);
+      });
+      r.addEventListener('pointerleave',()=>hideTip(host));
+      s.appendChild(r);
+    });
+  });
+}
+
+/* ---------- horizontal bars (sector) ---------- */
+function hbarChart(hostId, rows){
+  const host=$('#'+hostId);
+  const h=Math.max(160, rows.length*24+20);
+  const {s,w}=svgFor(host,h);
+  const m={l:Math.min(180,w*0.38),r:44,t:6,b:6}, iw=w-m.l-m.r;
+  const hi=Math.max(...rows.map(r=>r.share));
+  rows.forEach((r,i)=>{
+    const y=m.t+i*24, bw=Math.max(r.share/hi*iw,2);
+    const t=el('text',{x:m.l-10,y:y+14,'text-anchor':'end','font-size':12,
+      fill:css('--ink-2'),'font-family':css('--sans')});
+    t.textContent = r.industry.length>26 ? r.industry.slice(0,25)+'…' : r.industry;
+    s.appendChild(t);
+    const rect=el('rect',{x:m.l,y:y+3,width:bw,height:14,fill:css('--s1'),rx:3,ry:3});
+    rect.addEventListener('pointerenter',ev=>{const rc=host.getBoundingClientRect();
+      showTip(host,`<div class="r"><span>${r.industry}</span><span>${pct(r.share)}</span></div>`,
+        ev.clientX-rc.left,ev.clientY-rc.top);});
+    rect.addEventListener('pointerleave',()=>hideTip(host));
+    s.appendChild(rect);
+    axisText(s,m.l+bw+8,y+15,pct(r.share,0),'start');
+  });
+}
+
+/* ---------- histogram (null) ---------- */
+function histChart(hostId, values, marker, markerLabel){
+  const host=$('#'+hostId); const h=250;
+  const {s,w}=svgFor(host,h);
+  const m={l:46,r:16,t:14,b:32}, iw=w-m.l-m.r, ih=h-m.t-m.b;
+  const lo=Math.min(...values,marker), hi=Math.max(...values,marker);
+  const pad=(hi-lo)*0.06, LO=lo-pad, HI=hi+pad;
+  const nb=Math.min(26,Math.max(12,Math.round(Math.sqrt(values.length)*1.6)));
+  const bins=new Array(nb).fill(0);
+  values.forEach(v=>{let i=Math.floor((v-LO)/((HI-LO)||1)*nb); i=Math.max(0,Math.min(nb-1,i)); bins[i]++;});
+  const mx=Math.max(...bins);
+  const X=v=>m.l+(v-LO)/((HI-LO)||1)*iw, Y=c=>m.t+ih-c/mx*ih;
+  [0,Math.round(mx/2),mx].forEach(c=>{const y=Y(c);
+    s.appendChild(el('line',{x1:m.l,x2:m.l+iw,y1:y,y2:y,stroke:css('--grid')}));
+    axisText(s,m.l-8,y+4,c,'end');});
+  const bwid=iw/nb;
+  bins.forEach((c,i)=>{ if(!c) return;
+    const x=X(LO+(i+0.0)*(HI-LO)/nb);
+    const r=el('rect',{x:x+1,y:Y(c),width:Math.max(bwid-2,1),height:m.t+ih-Y(c),
+      fill:css('--muted'),opacity:.55,rx:3,ry:3});
+    const b0=LO+i*(HI-LO)/nb, b1=LO+(i+1)*(HI-LO)/nb;
+    r.addEventListener('pointerenter',ev=>{const rc=host.getBoundingClientRect();
+      showTip(host,`<div style="color:var(--muted);margin-bottom:3px">${pct(b0)} – ${pct(b1)}</div>`+
+        `<div class="r"><span>Random portfolios</span><span>${c}</span></div>`,
+        ev.clientX-rc.left,ev.clientY-rc.top);});
+    r.addEventListener('pointerleave',()=>hideTip(host));
+    s.appendChild(r);
+  });
+  for(let i=0;i<=4;i++){const v=LO+(HI-LO)*i/4; axisText(s,X(v),h-10,pct(v,0));}
+  const mxp=X(marker);
+  s.appendChild(el('line',{x1:mxp,x2:mxp,y1:m.t-2,y2:m.t+ih,stroke:css('--s2'),'stroke-width':2}));
+  const lbl=el('text',{x:Math.min(mxp+7,w-150),y:m.t+10,'font-size':12,fill:css('--s2'),
+    'font-weight':600,'font-family':css('--sans')});
+  lbl.textContent=markerLabel; s.appendChild(lbl);
+}
+
+/* ---------- tables ---------- */
+function table(id, cols, rows){
+  const t=$('#'+id);
+  t.innerHTML='<thead><tr>'+cols.map(c=>`<th>${c.h}</th>`).join('')+'</tr></thead>'+
+    '<tbody>'+rows.map(r=>'<tr>'+cols.map(c=>{
+      const v=c.f?c.f(r):r[c.k];
+      return `<td class="${c.cls?c.cls(r):''}">${v==null?'—':v}</td>`;}).join('')+'</tr>').join('')+'</tbody>';
+}
+
+/* ---------- render ---------- */
+let scale='log';
+function drawAll(){
+  const c=D.curves;
+  lineChart('equity',[
+    {name:'Momentum 25',pts:c.strategy,color:css('--s1')},
+    {name:'NIFTY 500',pts:c.benchmark,color:css('--s2')}],
+    {scale,band:c.null_band,h:340,tipfmt:v=>'₹'+num(v),
+     yfmt:t=>'₹'+(t>=10?Math.round(t):num(t,1))});
+  lineChart('dd',[
+    {name:'Momentum 25',pts:c.drawdown,color:css('--s1'),area:true},
+    {name:'NIFTY 500',pts:c.bench_drawdown,color:css('--s2')}],
+    {h:250,baseline:0,hi:0,tipfmt:v=>pct(v),yfmt:t=>pct(t,0)});
+  const yrs=Object.keys(D.yearly);
+  barChart('yearly',yrs,[
+    {name:'Momentum 25',vals:yrs.map(y=>D.yearly[y]),color:css('--s1')},
+    {name:'NIFTY 500',vals:yrs.map(y=>D.yearly_bench[y]??null),color:css('--s2')}],{h:290});
+  histChart('null',D.null.cagrs,D.summary.cagr,
+    `Ruleset ${pct(D.summary.cagr)} · ${Math.round(D.null.cagr_percentile)}th pctile`);
+  if(D.rolling_3y && D.rolling_3y.length)
+    lineChart('rolling',[{name:'3y CAGR',pts:D.rolling_3y,color:css('--s1')}],
+      {h:200,baseline:0,tipfmt:v=>pct(v),yfmt:t=>pct(t,0),ml:46});
+  if(D.sector_mix && D.sector_mix.length) hbarChart('sector',D.sector_mix);
+}
+
+function build(){
+  const S=D.summary,B=D.benchmark,N=D.null;
+  $('#yrsSpan').textContent=S.years;
+  $('#genDate').textContent=D.generated;
+  $('#capDates').textContent=`${S.start} to ${S.end}`;
+  $('#capCost').textContent=D.config.portfolio.cost_bps;
+  $('#nullN').textContent=N.n;
+  $('#screenDate').textContent=D.data_coverage.price_last;
+  const cov=D.data_coverage;
+  $('#covNote').textContent=
+    `Universe pool ${cov.pool_symbols} NSE names · ${cov.priced_symbols} with usable price history · `+
+    `${cov.mcap_symbols} with point-in-time share counts for market-cap ranking · `+
+    `prices ${cov.price_first} to ${cov.price_last}.`;
+
+  const beat = S.cagr-B.cagr;
+  $('#tiles').innerHTML=[
+    ['CAGR',pct(S.cagr),`NIFTY 500 ${pct(B.cagr)}`],
+    ['Total return',pct(S.total_return,0),`₹1 → ₹${num(1+S.total_return)}`],
+    ['Max drawdown',pct(S.max_drawdown),`index ${pct(B.max_drawdown)}`],
+    ['MAR',num(S.mar),'CAGR ÷ max drawdown'],
+    ['Sharpe',num(S.sharpe),'excess over 6% RF'],
+    ['vs random',`${Math.round(N.cagr_percentile)}th`,`percentile of ${N.n} draws`],
+  ].map(([k,v,d])=>`<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  const R=D.config.rules,P=D.config.portfolio;
+  $('#rulesBox').innerHTML=
+`<span class="h">SCORE</span>
+  (return over t−${R.lookback_days}d → t−${R.skip_days}d)  ÷  (annualised σ of daily returns, ${R.vol_days}d)
+  <span class="c">— 12-month momentum, skipping the last month, per unit of risk</span>
+
+<span class="h">FILTERS</span>  <span class="c">a name must pass all of these to be ranked</span>
+  1. Close &gt; ${R.sma_days}-day SMA                <span class="c">— trade only established uptrends</span>
+  2. No single-day move &gt; ${pct(R.max_daily_move,0)} in the lookback  <span class="c">— drop news-spike momentum</span>
+  3. ${R.turnover_days}-day average traded value &gt; ₹${R.min_turnover_cr} crore  <span class="c">— must be exitable</span>
+  4. Close &gt; ₹${R.min_price} and ≥ ${R.min_history_days} bars of history   <span class="c">— sanity</span>
+  5. Inside the point-in-time top ${P.universe_top_n} by market cap <span class="c">— the reconstructed NIFTY 500</span>
+
+<span class="h">PORTFOLIO</span>
+  Rank descending, hold the top <span class="h">${P.n_hold}</span>, ${P.weighting} weight
+  Rebalance ${P.rebalance==='ME'?'monthly':P.rebalance==='QE'?'quarterly':P.rebalance} · costs ${P.cost_bps} bps per side on traded value`;
+
+  table('hh',[
+    {h:'',k:'label'},{h:'CAGR',f:r=>pct(r.cagr),cls:r=>sign(r.cagr)},
+    {h:'Total',f:r=>pct(r.total_return,0)},
+    {h:'Max DD',f:r=>pct(r.max_drawdown),cls:()=>'neg'},
+    {h:'Vol',f:r=>pct(r.ann_vol)},{h:'MAR',f:r=>num(r.mar)},
+    {h:'Sharpe',f:r=>num(r.sharpe)},{h:'Sortino',f:r=>num(r.sortino)},
+    {h:'Win mo.',f:r=>pct(r.monthly_win_rate,0)},
+    {h:'Worst mo.',f:r=>pct(r.worst_month),cls:()=>'neg'},
+    {h:'Longest DD',f:r=>r.longest_dd_days+'d'},
+  ],[D.summary,D.benchmark]);
+
+  table('splits',[
+    {h:'Window',k:'label'},{h:'CAGR',f:r=>pct(r.cagr),cls:r=>sign(r.cagr)},
+    {h:'Max DD',f:r=>pct(r.max_drawdown),cls:()=>'neg'},
+    {h:'Random median',f:r=>pct(r.null_median_cagr)},
+    {h:'Percentile',f:r=>`<span class="pill ${r.null_pctile>=80?'ok':r.null_pctile<50?'bad':''}">${Math.round(r.null_pctile)}th</span>`},
+  ],D.splits);
+
+  const base={...D.summary,label:'Base case (as specified)'};
+  table('robust',[
+    {h:'Variant',k:'label'},{h:'CAGR',f:r=>pct(r.cagr),cls:r=>sign(r.cagr)},
+    {h:'Max DD',f:r=>pct(r.max_drawdown),cls:()=>'neg'},
+    {h:'MAR',f:r=>num(r.mar)},{h:'Sharpe',f:r=>num(r.sharpe)},
+    {h:'vs base',f:r=>{const d=r.cagr-D.summary.cagr;
+      return r.label===base.label?'—':`<span class="${sign(d)}">${d>=0?'+':''}${pct(d)}</span>`;}},
+  ],[base,...D.robustness]);
+
+  const T=D.turnover;
+  table('turn',[{h:'Measure',k:'k'},{h:'Value',k:'v'}],[
+    {k:'Rebalances',v:T.n_rebalances},
+    {k:'Avg monthly turnover',v:pct(T.avg_monthly_turnover/2,0)+' of book'},
+    {k:'Avg names replaced / month',v:num(T.avg_names_replaced,1)+' of '+D.config.portfolio.n_hold},
+    {k:'Total cost drag (sum of charges)',v:pct(T.total_cost_drag,1)},
+  ]);
+
+  if(D.most_held.length) table('held',[
+    {h:'Symbol',k:'symbol',cls:()=>'sym'},{h:'Company',k:'name',cls:()=>'name'},
+    {h:'Months held',k:'months'}],D.most_held);
+
+  table('screenTbl',[
+    {h:'#',k:'rank'},{h:'Symbol',k:'symbol',cls:()=>'sym'},
+    {h:'Company',k:'name',cls:()=>'name'},{h:'Industry',k:'industry',cls:()=>'name'},
+    {h:'Score',f:r=>num(r.score)},
+    {h:'12m−1m',f:r=>pct(r.ret_12_1,0),cls:r=>sign(r.ret_12_1)},
+    {h:'σ ann.',f:r=>pct(r.vol,0)},
+    {h:'3m',f:r=>pct(r.ret_3m,0),cls:r=>sign(r.ret_3m)},
+    {h:'Off 52w hi',f:r=>pct(r.pct_off_52w_high,0)},
+    {h:'₹ Close',f:r=>num(r.close,1)},
+    {h:'Turnover ₹cr',f:r=>num(r.turnover_cr,0)},
+  ],D.live_screen);
+
+  const mt=D.monthly_table, MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const yrsM=Object.keys(mt).sort();
+  $('#monthly').innerHTML='<thead><tr><th>Year</th>'+MN.map(m=>`<th>${m}</th>`).join('')+'</tr></thead><tbody>'+
+    yrsM.map(y=>`<tr><td>${y}</td>`+MN.map((_,i)=>{
+      const v=mt[y][String(i+1)]; return `<td class="${sign(v)}">${v==null?'—':pct(v,1)}</td>`;}).join('')+'</tr>').join('')+'</tbody>';
+
+  $('#methodBox').innerHTML=`
+  <h3>Universe: rebuilt, not assumed</h3>
+  <p class="sub">Running this over <em>today's</em> NIFTY 500 would quietly delete every company
+  that fell out of the index along the way — which is exactly the set that did badly, and it
+  inflates any long-only result. Instead the candidate pool is the union of NIFTY 500, Total
+  Market 750 and Microcap 250 (${D.data_coverage.pool_symbols} names), and index membership is
+  rebuilt at every rebalance by ranking that pool on <em>point-in-time</em> market cap — that
+  date's adjusted price times that date's shares outstanding, taken from a real
+  shares-outstanding time series rather than today's share count projected backwards.</p>
+
+  <h3>What the backtest assumes</h3>
+  <ul class="sub">
+    <li>Prices are split- and bonus-adjusted daily closes.</li>
+    <li>Signals use data up to and including the rebalance close; the book is assumed
+        established at that same close. That is one bar of optimism, which the
+        ${D.config.portfolio.cost_bps} bps/side cost assumption is set generously to offset.</li>
+    <li>Costs are charged on traded value at each rebalance, covering brokerage, STT,
+        impact and slippage. The robustness table shows 50 and 100 bps/side too.</li>
+    <li>No leverage, no shorting, no stop losses, always fully invested.</li>
+  </ul>
+
+  <h3>Caveats worth taking seriously</h3>
+  <div class="caveat"><b>The pool has a floor.</b> A company that fell out of the top 750 by
+  market cap entirely — or was delisted outright — is absent from every current NSE constituent
+  file and so cannot enter the pool at any date. The reconstruction removes most survivorship
+  bias, not all of it.</div>
+  <div class="caveat"><b>Reconstructed membership is not official membership.</b> Ranking on
+  market cap reproduces NSE's primary selection criterion but not its liquidity screens, cutoff
+  buffers or review calendar, so names at the 500 boundary differ from the official list.</div>
+  <div class="caveat"><b>One market, one regime.</b> ${S.years} years covers a
+  COVID recovery, a 2022 correction and a long mid-cap bull run. It does not contain a
+  prolonged bear market in Indian equities. Momentum's known failure mode is the sharp
+  reversal at the end of a downtrend, and this window is thin on those.</div>
+  <div class="caveat"><b>Backtests are not returns.</b> No live execution, no impact from
+  trading real size in mid caps, no taxes. Treat the numbers as a measure of whether the
+  <em>rule</em> has signal, not as a forecast of what a portfolio would have earned.</div>
+
+  <h3>Reproducing this</h3>
+  <p class="sub">Everything on this page is generated from public data by the code in the
+  repository — <code>scripts/fetch_data.py</code> then <code>scripts/run_backtest.py</code>
+  then <code>scripts/build_site.py</code>. Data cut: ${D.data_coverage.price_last}.</p>`;
+
+  drawAll();
+}
+build();
+$('#scaleToggle').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  scale=b.dataset.scale;
+  [...e.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+  drawAll();
+});
+let rt; addEventListener('resize',()=>{clearTimeout(rt); rt=setTimeout(drawAll,160);});
+</script>
+</body>
+</html>
