@@ -85,6 +85,20 @@ for r in D["robustness"]:
     A(row(r))
 A("")
 
+raw = next((r for r in D["robustness"] if "Raw 12-1" in r["label"]), None)
+if raw:
+    A("### What the volatility divisor actually buys\n")
+    dc = raw["cagr"] - S["cagr"]
+    A(f"Plain 12-1 momentum with no volatility divisor returns {pc(raw['cagr'])} against the "
+      f"ruleset's {pc(S['cagr'])} — a difference of {pc(abs(dc),1)} in "
+      f"{'favour of the raw version' if dc > 0 else 'favour of the ruleset'}. So the divisor is "
+      f"**not** what generates the return.\n")
+    A(f"What it does is cut the drawdown: {pc(S['max_drawdown'])} against {pc(raw['max_drawdown'])}, "
+      f"which moves MAR from {nu(raw['mar'])} to {nu(S['mar'])}. Dividing by volatility keeps the "
+      "most violent names out of a 25-stock book, and that shows up in the depth of the hole "
+      "rather than in the compounding. If you only care about CAGR, this term is not earning its "
+      "place; if you have to sit through the drawdown, it is.\n")
+
 A("## Year by year\n")
 A("| Year | Momentum 25 | NIFTY 500 |\n|---|---:|---:|")
 for y, v in D["yearly"].items():

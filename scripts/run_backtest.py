@@ -137,7 +137,6 @@ def main():
 
     # ------------------------------------------------------- current screen
     last = close.index[-1]
-    live = factors.rank_on(last, universe=None, n=50)
     from momentum.universe import members_on
     u = members_on(mcap, last, PORTFOLIO.universe_top_n)
     live = factors.rank_on(last, universe=u, n=50)

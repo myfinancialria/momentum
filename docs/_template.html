@@ -230,6 +230,8 @@ summary{cursor:pointer;color:var(--s1);font-size:13.5px}
   <p class="sub">A result that only survives at one setting is a curve fit. These are the same
   rules with one knob moved at a time.</p>
   <div class="card"><div class="tbl-wrap"><table id="robustTbl"></table></div></div>
+  <div class="card"><h3>What the volatility divisor actually buys</h3>
+    <p class="sub" id="divisorNote"></p></div>
   <div class="grid2">
     <div class="card"><h3>Turnover &amp; cost</h3><div class="tbl-wrap"><table id="turn"></table></div></div>
     <div class="card"><h3>Where it traded</h3>
@@ -609,6 +611,21 @@ function build(){
     {h:'vs base',f:r=>{const d=r.cagr-D.summary.cagr;
       return r.label===base.label?'—':`<span class="${sign(d)}">${d>=0?'+':''}${pct(d)}</span>`;}},
   ],[base,...D.robustness]);
+
+  const raw=D.robustness.find(r=>r.label.indexOf('Raw 12-1')>=0);
+  if(raw){
+    const dc=raw.cagr-D.summary.cagr;
+    $('#divisorNote').innerHTML =
+      `Plain 12&#8209;1 momentum with no volatility divisor returns <strong>${pct(raw.cagr)}</strong> `+
+      `against the ruleset's <strong>${pct(D.summary.cagr)}</strong> — a gap of ${pct(Math.abs(dc))} `+
+      `in favour of the ${dc>0?'raw version':'ruleset'}. So the divisor is <em>not</em> what `+
+      `generates the return. What it does is cut the drawdown: <strong>${pct(D.summary.max_drawdown)}</strong> `+
+      `against <strong>${pct(raw.max_drawdown)}</strong>, moving MAR from ${num(raw.mar)} to `+
+      `${num(D.summary.mar)}. Dividing by volatility keeps the most violent names out of a `+
+      `${D.config.portfolio.n_hold}-stock book, and that shows up in the depth of the hole rather `+
+      `than in the compounding. If you only care about CAGR this term is not earning its place; `+
+      `if you have to sit through the drawdown, it is.`;
+  }
 
   const T=D.turnover;
   table('turn',[{h:'Measure',k:'k'},{h:'Value',k:'v'}],[
