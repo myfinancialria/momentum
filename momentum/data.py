@@ -159,7 +159,8 @@ def _known_bad() -> set[str]:
 
 
 def load_prices(tickers: list[str], force: bool = False, chunk: int = 40,
-                include_new: bool = True, refresh_tail: bool = True
+                include_new: bool = True, refresh_tail: bool = True,
+                repair_missing: bool = True
                 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Return (close, volume) panels indexed by date, columns = yahoo tickers.
 
@@ -209,7 +210,7 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40,
     volume = volume.loc[:, ~volume.columns.duplicated()]
 
     still = [t for t in need if t not in close.columns or close[t].notna().sum() < 250]
-    if still and force:
+    if still and force and repair_missing:
         print(f"[prices] repairing {len(still)} missing individually", flush=True)
         rc, rv, dead = {}, {}, []
         for n, t in enumerate(still, 1):
