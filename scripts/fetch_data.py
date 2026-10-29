@@ -5,7 +5,13 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from momentum import data
 
 force = "--force" in sys.argv
-pool = data.build_pool(force=force or "--refresh-pool" in sys.argv)
+try:
+    pool = data.build_pool(force=force or "--refresh-pool" in sys.argv)
+except Exception as exc:
+    if not data.POOL_CSV.exists():
+        raise
+    print(f"[pool] refresh failed ({exc}); using cached pool", flush=True)
+    pool = data.build_pool()
 tickers = pool["yf"].tolist()
 print(f"pool: {len(tickers)} tickers")
 

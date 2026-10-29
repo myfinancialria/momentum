@@ -73,7 +73,8 @@ class Backtest:
     # Keep the default moving so unattended daily runs never go stale.
     end: str = field(default_factory=lambda: date.today().isoformat())
     n_random_portfolios: int = 200    # the honest benchmark
-    seed: int = field(default_factory=lambda: int(date.today().strftime("%Y%m%d")))
+    # Keep the random-null comparison reproducible across daily screen refreshes.
+    seed: int = 20260905
 
 
 RULES = Rules()
