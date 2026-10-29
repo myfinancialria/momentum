@@ -17,7 +17,10 @@ from momentum.universe import market_cap_panel, members_on
 
 def main() -> None:
     pool = data.build_pool()
-    close, volume = data.load_prices(pool["yf"].tolist())
+    # fetch_data.py handles new symbols; this step only reads the refreshed
+    # usable panel so a few newly listed/delisted tickers cannot block publishing.
+    close, volume = data.load_prices(pool["yf"].tolist(), include_new=False,
+                                      refresh_tail=False)
     shares = data.load_shares([t for t in pool["yf"] if t in close.columns])
     if close.empty:
         raise RuntimeError("price cache is empty; refusing to publish an empty screen")

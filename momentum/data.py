@@ -14,6 +14,7 @@ import csv
 import hashlib
 import io
 import time
+import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
@@ -95,8 +96,10 @@ def build_pool(force: bool = False) -> pd.DataFrame:
 def _download_chunk(tickers: list[str], start: str, end: str, tries: int = 3):
     for attempt in range(tries):
         try:
-            df = yf.download(tickers, start=start, end=end, auto_adjust=True,
-                             progress=False, threads=True, group_by="column")
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                df = yf.download(tickers, start=start, end=end, auto_adjust=True,
+                                 progress=False, threads=True, group_by="column")
             if df is not None and len(df):
                 return df
         except Exception as exc:                      # noqa: BLE001 - yfinance is flaky
@@ -126,12 +129,22 @@ def _refresh_tail(close: pd.DataFrame, volume: pd.DataFrame, tickers: list[str],
 
     if new_close:
         fresh = pd.concat(new_close, axis=1)
-        close = pd.concat([close, fresh], axis=0)
-        close = close[~close.index.duplicated(keep="last")].sort_index()
+        fresh = fresh.loc[:, ~fresh.columns.duplicated()]
+        close = close.reindex(close.index.union(fresh.index)).sort_index()
+        common = close.columns.intersection(fresh.columns)
+        close.update(fresh[common])
+        extra = fresh.columns.difference(close.columns)
+        if len(extra):
+            close = pd.concat([close, fresh[extra]], axis=1)
     if new_volume:
         fresh = pd.concat(new_volume, axis=1)
-        volume = pd.concat([volume, fresh], axis=0)
-        volume = volume[~volume.index.duplicated(keep="last")].sort_index()
+        fresh = fresh.loc[:, ~fresh.columns.duplicated()]
+        volume = volume.reindex(volume.index.union(fresh.index)).sort_index()
+        common = volume.columns.intersection(fresh.columns)
+        volume.update(fresh[common])
+        extra = fresh.columns.difference(volume.columns)
+        if len(extra):
+            volume = pd.concat([volume, fresh[extra]], axis=1)
     return close, volume
 
 
@@ -145,7 +158,8 @@ def _known_bad() -> set[str]:
     return set()
 
 
-def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
+def load_prices(tickers: list[str], force: bool = False, chunk: int = 40,
+                include_new: bool = True, refresh_tail: bool = True
                 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Return (close, volume) panels indexed by date, columns = yahoo tickers.
 
@@ -163,7 +177,7 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
         close, volume = pd.read_pickle(CLOSE_PQ), pd.read_pickle(VOLUME_PQ)
 
     bad = set() if force else _known_bad()
-    need = [t for t in tickers if t not in close.columns and t not in bad]
+    need = [t for t in tickers if include_new and t not in close.columns and t not in bad]
     if need:
         print(f"[prices] {len(need)} new tickers to fetch "
               f"({close.shape[1]} already cached)", flush=True)
@@ -195,7 +209,7 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
     volume = volume.loc[:, ~volume.columns.duplicated()]
 
     still = [t for t in need if t not in close.columns or close[t].notna().sum() < 250]
-    if still:
+    if still and force:
         print(f"[prices] repairing {len(still)} missing individually", flush=True)
         rc, rv, dead = {}, {}, []
         for n, t in enumerate(still, 1):
@@ -218,13 +232,17 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
         NOPRICE_TXT.write_text("\n".join(sorted(_known_bad() | set(dead))))
         print(f"[prices] rescued {len(rc)}/{len(still)}; {len(dead)} have no usable history",
               flush=True)
+    elif still:
+        NOPRICE_TXT.write_text("\n".join(sorted(_known_bad() | set(still))))
+        print(f"[prices] leaving {len(still)} incomplete new tickers for a future full refresh",
+              flush=True)
 
     close, volume = close.sort_index(), volume.sort_index()
 
     # Existing caches contain the full historical panel but otherwise stop at
     # the date of the last run. Refresh only a short overlap window so a daily
     # action advances the data without downloading eight years again.
-    if len(close.index):
+    if refresh_tail and len(close.index):
         refresh_start = max(pd.Timestamp(BT.price_start),
                             close.index[-1] - pd.Timedelta(days=7))
         refresh_end = (pd.Timestamp(BT.end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
