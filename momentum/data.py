@@ -105,6 +105,36 @@ def _download_chunk(tickers: list[str], start: str, end: str, tries: int = 3):
     return None
 
 
+def _refresh_tail(close: pd.DataFrame, volume: pd.DataFrame, tickers: list[str],
+                  start: str, end: str, chunk: int = 40) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Refresh recent rows for cached tickers without re-downloading history."""
+    active = [t for t in tickers if t in close.columns]
+    if not active:
+        return close, volume
+
+    new_close, new_volume = [], []
+    for i in range(0, len(active), chunk):
+        batch = active[i:i + chunk]
+        df = _download_chunk(batch, start, end)
+        if df is None or not isinstance(df.columns, pd.MultiIndex):
+            continue
+        if "Close" in df.columns.get_level_values(0):
+            new_close.append(df["Close"])
+        if "Volume" in df.columns.get_level_values(0):
+            new_volume.append(df["Volume"])
+        print(f"[prices] refreshed {min(i + chunk, len(active))}/{len(active)}", flush=True)
+
+    if new_close:
+        fresh = pd.concat(new_close, axis=1)
+        close = pd.concat([close, fresh], axis=0)
+        close = close[~close.index.duplicated(keep="last")].sort_index()
+    if new_volume:
+        fresh = pd.concat(new_volume, axis=1)
+        volume = pd.concat([volume, fresh], axis=0)
+        volume = volume[~volume.index.duplicated(keep="last")].sort_index()
+    return close, volume
+
+
 CHUNKS = DATA / "chunks"
 NOPRICE_TXT = DATA / "no_price.txt"
 
@@ -134,10 +164,9 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
 
     bad = set() if force else _known_bad()
     need = [t for t in tickers if t not in close.columns and t not in bad]
-    if not need:
-        return close, volume
-    print(f"[prices] {len(need)} new tickers to fetch "
-          f"({close.shape[1]} already cached)", flush=True)
+    if need:
+        print(f"[prices] {len(need)} new tickers to fetch "
+              f"({close.shape[1]} already cached)", flush=True)
 
     CHUNKS.mkdir(exist_ok=True)
     parts_c, parts_v = [], []
@@ -191,6 +220,19 @@ def load_prices(tickers: list[str], force: bool = False, chunk: int = 40
               flush=True)
 
     close, volume = close.sort_index(), volume.sort_index()
+
+    # Existing caches contain the full historical panel but otherwise stop at
+    # the date of the last run. Refresh only a short overlap window so a daily
+    # action advances the data without downloading eight years again.
+    if len(close.index):
+        refresh_start = max(pd.Timestamp(BT.price_start),
+                            close.index[-1] - pd.Timedelta(days=7))
+        refresh_end = (pd.Timestamp(BT.end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        if pd.Timestamp(refresh_end) > close.index[-1]:
+            close, volume = _refresh_tail(
+                close, volume, tickers,
+                refresh_start.strftime("%Y-%m-%d"), refresh_end, chunk=chunk)
+
     keep = close.notna().sum() > 250
     close, volume = close.loc[:, keep], volume.loc[:, keep.reindex(volume.columns).fillna(False)]
     close.to_pickle(CLOSE_PQ); volume.to_pickle(VOLUME_PQ)
@@ -263,8 +305,23 @@ def load_shares(tickers: list[str], force: bool = False, workers: int = 8) -> pd
 
 def load_benchmark(force: bool = False) -> pd.Series:
     if BENCH_PQ.exists() and not force:
-        return pd.read_pickle(BENCH_PQ)["close"]
-    df = yf.download(BENCHMARK, start=BT.price_start, end=BT.end,
+        s = pd.read_pickle(BENCH_PQ)["close"]
+        if len(s) and pd.Timestamp(BT.end) > s.index[-1]:
+            start = max(pd.Timestamp(BT.price_start), s.index[-1] - pd.Timedelta(days=7))
+            end = (pd.Timestamp(BT.end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+            fresh = yf.download(BENCHMARK, start=start.strftime("%Y-%m-%d"), end=end,
+                                auto_adjust=True, progress=False)
+            if len(fresh):
+                fs = fresh["Close"]
+                if isinstance(fs, pd.DataFrame):
+                    fs = fs.iloc[:, 0]
+                s = pd.concat([s, fs])
+                s = s[~s.index.duplicated(keep="last")].sort_index()
+                s.name = "close"
+                s.to_frame().to_pickle(BENCH_PQ)
+        return s
+    df = yf.download(BENCHMARK, start=BT.price_start,
+                     end=(pd.Timestamp(BT.end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
                      auto_adjust=True, progress=False)
     s = df["Close"]
     if isinstance(s, pd.DataFrame):

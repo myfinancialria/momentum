@@ -4,14 +4,15 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
 from momentum import data
 
-pool = data.build_pool(force="--force" in sys.argv)
+force = "--force" in sys.argv
+pool = data.build_pool(force=force or "--refresh-pool" in sys.argv)
 tickers = pool["yf"].tolist()
 print(f"pool: {len(tickers)} tickers")
 
-close, volume = data.load_prices(tickers, force="--force" in sys.argv)
+close, volume = data.load_prices(tickers, force=force)
 print("prices done", close.shape)
 
-bench = data.load_benchmark(force="--force" in sys.argv)
+bench = data.load_benchmark(force=force)
 print("benchmark done", bench.shape, bench.index.min(), bench.index.max())
 
 # Only bother fetching share counts for names we actually have prices for.

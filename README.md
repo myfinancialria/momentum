@@ -95,6 +95,13 @@ python scripts/screen.py -n 25     # today's top 25
 python scripts/screen.py --date 2024-06-28 -n 10   # or any past date
 ```
 
+The published GitHub Pages site also has a weekday GitHub Actions refresh at 18:15 IST. It
+refreshes the cached price tail, rebuilds the live screen, and republishes the page without
+rerunning the full historical study. Run `python scripts/fetch_data.py --refresh-pool` followed
+by `python scripts/update_daily.py` for the same local workflow. Every live-screen row includes
+the signal/entry date, latest-close entry price, and an illustrative 8% protective stop-loss;
+the historical backtest does not model intraday stop execution.
+
 Data comes from NSE's public constituent files and Yahoo Finance. No API key needed.
 
 ## Caveats

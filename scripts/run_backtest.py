@@ -155,6 +155,10 @@ def main():
             "close": round(float(row["close"]), 2),
             "turnover_cr": round(float(row["turnover_cr"]), 1),
             "pct_off_52w_high": round(float(row["pct_off_52w_high"]), 4),
+            "entry_date": str(last.date()),
+            "entry_price": round(float(row["close"]), 2),
+            "stop_loss": round(float(row["close"]) * (1.0 - RULES.stop_loss_pct), 2),
+            "stop_loss_pct": RULES.stop_loss_pct,
         })
 
     # ------------------------------------------------------- holdings / sectors

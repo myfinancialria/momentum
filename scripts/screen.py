@@ -12,7 +12,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import pandas as pd
 
 from momentum import data
-from momentum.config import PORTFOLIO
+from momentum.config import PORTFOLIO, RULES
 from momentum.screen import Factors
 from momentum.universe import market_cap_panel, members_on
 
@@ -45,9 +45,13 @@ def main():
 
     show = ranked[["rank", "symbol", "company", "score", "ret_12_1", "vol",
                    "ret_3m", "close", "turnover_cr"]].copy()
+    show.insert(3, "entry_date", str(asof.date()))
+    show.insert(4, "entry_price", show["close"])
+    show.insert(5, "stop_loss", show["close"] * (1.0 - RULES.stop_loss_pct))
     for c in ("ret_12_1", "vol", "ret_3m"):
         show[c] = (show[c] * 100).round(1)
-    show[["score", "close", "turnover_cr"]] = show[["score", "close", "turnover_cr"]].round(2)
+    show[["score", "close", "entry_price", "stop_loss", "turnover_cr"]] = \
+        show[["score", "close", "entry_price", "stop_loss", "turnover_cr"]].round(2)
 
     print(f"\nMomentum ranking as of {asof.date()}  "
           f"(universe: point-in-time top {PORTFOLIO.universe_top_n} by market cap)\n")

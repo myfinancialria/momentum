@@ -248,8 +248,10 @@ summary{cursor:pointer;color:var(--s1);font-size:13.5px}
   <h2>Live screen</h2>
   <p class="sub">The ruleset applied to the most recent close in the dataset
   (<span id="screenDate"></span>). The top 25 is what the strategy would hold at the next
-  month-end rebalance. This is research output, not advice.</p>
+  month-end rebalance. Each row also shows the signal/entry date, entry price and an
+  illustrative protective stop-loss. This is research output, not advice.</p>
   <div class="card"><div class="tbl-wrap"><table id="screenTbl"></table></div></div>
+  <p class="note" id="screenNote"></p>
   <p class="note">Download: <a href="current_screen.csv">current_screen.csv</a> ·
   <a href="data.json">data.json</a> · <a href="equity_curve.csv">equity_curve.csv</a></p>
 </section>
@@ -584,6 +586,10 @@ function build(){
 <span class="h">PORTFOLIO</span>
   Rank descending, hold the top <span class="h">${P.n_hold}</span>, ${P.weighting} weight
   Rebalance ${P.rebalance==='ME'?'monthly':P.rebalance==='QE'?'quarterly':P.rebalance} · costs ${P.cost_bps} bps per side on traded value`;
+  $('#screenNote').textContent =
+    `Entry date is the latest available daily close (${D.data_coverage.price_last}); `+
+    `entry price is that close and the illustrative SL is ${pct(R.stop_loss_pct,0)} below entry. `+
+    `The backtest does not model intraday stop execution.`;
 
   table('hh',[
     {h:'',k:'label'},{h:'CAGR',f:r=>pct(r.cagr),cls:r=>sign(r.cagr)},
@@ -642,6 +648,9 @@ function build(){
   table('screenTbl',[
     {h:'#',k:'rank'},{h:'Symbol',k:'symbol',cls:()=>'sym'},
     {h:'Company',k:'name',cls:()=>'name'},{h:'Industry',k:'industry',cls:()=>'name'},
+    {h:'Entry date',f:r=>fmtD(r.entry_date)},
+    {h:'Entry ₹',f:r=>num(r.entry_price,1)},
+    {h:'SL ₹',f:r=>num(r.stop_loss,1),cls:()=>'neg'},
     {h:'Score',f:r=>num(r.score)},
     {h:'12m−1m',f:r=>pct(r.ret_12_1,0),cls:r=>sign(r.ret_12_1)},
     {h:'σ ann.',f:r=>pct(r.vol,0)},
@@ -675,7 +684,7 @@ function build(){
         ${D.config.portfolio.cost_bps} bps/side cost assumption is set generously to offset.</li>
     <li>Costs are charged on traded value at each rebalance, covering brokerage, STT,
         impact and slippage. The robustness table shows 50 and 100 bps/side too.</li>
-    <li>No leverage, no shorting, no stop losses, always fully invested.</li>
+    <li>No leverage, no shorting, and no stop-loss execution in the historical backtest; the live screen's SL is an illustrative ${pct(D.config.rules.stop_loss_pct,0)} protective level only.</li>
   </ul>
 
   <h3>Caveats worth taking seriously</h3>

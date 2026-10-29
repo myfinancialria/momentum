@@ -6,6 +6,7 @@ published page and the rules in the backtest cannot drift apart.
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -52,6 +53,7 @@ class Rules:
     min_turnover_cr: float = 5.0      # Rs crore, 20-day average traded value
     min_price: float = 10.0
     min_history_days: int = 300       # need enough bars to score at all
+    stop_loss_pct: float = 0.08       # illustrative protective stop below entry
 
 
 @dataclass(frozen=True)
@@ -68,9 +70,10 @@ class Backtest:
     price_start: str = "2015-01-01"
     shares_start: str = "2016-01-01"
     start: str = "2018-01-01"
-    end: str = "2026-09-05"
+    # Keep the default moving so unattended daily runs never go stale.
+    end: str = field(default_factory=lambda: date.today().isoformat())
     n_random_portfolios: int = 200    # the honest benchmark
-    seed: int = 20260905
+    seed: int = field(default_factory=lambda: int(date.today().strftime("%Y%m%d")))
 
 
 RULES = Rules()
