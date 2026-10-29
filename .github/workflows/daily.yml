@@ -1,6 +1,8 @@
 name: Daily momentum screen
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
     # 18:15 Asia/Kolkata, after the NSE session and Yahoo's daily close update.
@@ -15,6 +17,7 @@ permissions:
 
 jobs:
   refresh:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out site
