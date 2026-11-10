@@ -1,6 +1,5 @@
 symbol,name,industry,isin,in_nifty500,in_totalmarket,in_microcap250,yf,listed
 20MICRONS,20 Microns Limited,Unclassified,INE144J01027,False,False,False,20MICRONS.NS,06-OCT-2008
-21STCENMGM,21st Century Management Services Limited,Unclassified,INE253B01015,False,False,False,21STCENMGM.NS,03-MAY-1995
 360ONE,360 ONE WAM Ltd.,Financial Services,INE466L01038,True,True,False,360ONE.NS,
 3BBLACKBIO,3B Blackbio Dx Limited,Unclassified,INE994E01018,False,False,False,3BBLACKBIO.NS,20-APR-2026
 3MINDIA,3M India Limited,Unclassified,INE470A01017,False,False,False,3MINDIA.NS,13-AUG-2004
@@ -24,7 +23,7 @@ ABANSENT,Abans Enterprises Limited,Unclassified,INE365O01028,False,False,False,A
 ABB,ABB India Ltd.,Capital Goods,INE117A01022,True,True,False,ABB.NS,
 ABBOTINDIA,Abbott India Ltd.,Healthcare,INE358A01014,True,True,False,ABBOTINDIA.NS,
 ABCAPITAL,Aditya Birla Capital Ltd.,Financial Services,INE674K01013,True,True,False,ABCAPITAL.NS,
-ABCOTS,A B Cotspin India Limited,Unclassified,INE08PH01015,False,False,False,ABCOTS.NS,24-SEP-2025
+ABCIND,ABC Industries India Limited,Unclassified,INE08PH01015,False,False,False,ABCIND.NS,24-SEP-2025
 ABDL,Allied Blenders and Distillers Ltd.,Fast Moving Consumer Goods,INE552Z01027,True,True,False,ABDL.NS,
 ABFRL,Aditya Birla Fashion and Retail Ltd.,Consumer Services,INE647O01011,False,True,True,ABFRL.NS,
 ABLBL,Aditya Birla Lifestyle Brands Ltd.,Consumer Services,INE14LE01019,False,True,True,ABLBL.NS,
@@ -151,6 +150,7 @@ APOLLOHOSP,Apollo Hospitals Enterprise Ltd.,Healthcare,INE437A01024,True,True,Fa
 APOLLOPIPE,Apollo Pipes Limited,Unclassified,INE126J01016,False,False,False,APOLLOPIPE.NS,11-NOV-2019
 APOLLOTYRE,Apollo Tyres Ltd.,Automobile and Auto Components,INE438A01022,True,True,False,APOLLOTYRE.NS,
 APOLSINHOT,Apollo Sindoori Hotels Limited,Unclassified,INE451F01024,False,False,False,APOLSINHOT.NS,28-JAN-2015
+APOORVA,Apoorva Leasing Finance and Investment Company Limited,Unclassified,INE217S01014,False,False,False,APOORVA.NS,17-AUG-2026
 APTECHT,Aptech Limited,Unclassified,INE266F01018,False,False,False,APTECHT.NS,27-SEP-2002
 APTUS,Aptus Value Housing Finance India Ltd.,Financial Services,INE852O01025,True,True,False,APTUS.NS,
 AQYLON,Aqylon Nexus Limited,Unclassified,INE416A01051,False,False,False,AQYLON.NS,01-APR-2024
@@ -180,10 +180,12 @@ ARVINDFASN,Arvind Fashions Ltd.,Consumer Services,INE955V01021,False,True,True,A
 ARVSMART,Arvind SmartSpaces Limited,Unclassified,INE034S01021,False,False,False,ARVSMART.NS,26-AUG-2015
 ARYAMAN,Aryaman Financial Services Limited,Unclassified,INE032E01017,False,False,False,ARYAMAN.NS,17-AUG-2026
 ASAHIINDIA,Asahi India Glass Ltd.,Automobile and Auto Components,INE439A01020,True,True,False,ASAHIINDIA.NS,
+ASAHISONG,Asahi Songwon Colors Limited,Unclassified,INE228I01012,False,False,False,ASAHISONG.NS,29-AUG-2011
 ASAL,Automotive Stampings and Assemblies Limited,Unclassified,INE900C01027,False,False,False,ASAL.NS,12-MAR-2002
 ASALCBR,Associated Alcohols & Breweries Ltd.,Unclassified,INE073G01016,False,False,False,ASALCBR.NS,12-FEB-2020
 ASHAPURMIN,Ashapura Minechem Ltd.,Metals & Mining,INE348A01023,False,True,True,ASHAPURMIN.NS,
 ASHIANA,Ashiana Housing Limited,Unclassified,INE365D01021,False,False,False,ASHIANA.NS,29-JUN-2011
+ASHIKAG,Ashika Global Securities Limited,Unclassified,INE094B01013,False,False,False,ASHIKAG.NS,20-APR-2026
 ASHIMASYN,Ashima Limited,Unclassified,INE440A01010,False,False,False,ASHIMASYN.NS,27-JUL-1995
 ASHOKA,Ashoka Buildcon Ltd.,Construction,INE442H01029,False,True,True,ASHOKA.NS,
 ASHOKAMET,Ashoka Metcast Limited,Unclassified,INE760Y01011,False,False,False,ASHOKAMET.NS,27-JUN-2023
@@ -208,7 +210,6 @@ ATAM,Atam Valves Limited,Unclassified,INE09KD01013,False,False,False,ATAM.NS,10-
 ATGL,Adani Total Gas Ltd.,Oil Gas & Consumable Fuels,INE399L01023,True,True,False,ATGL.NS,
 ATHERENERG,Ather Energy Ltd.,Automobile and Auto Components,INE0LEZ01016,True,True,False,ATHERENERG.NS,
 ATL,Allcargo Terminals Limited,Unclassified,INE0NN701020,False,False,False,ATL.NS,10-AUG-2023
-ATLANTAA,ATLANTAA LIMITED,Unclassified,INE285H01022,False,False,False,ATLANTAA.NS,25-SEP-2006
 ATLANTAELE,Atlanta Electricals Ltd.,Capital Goods,INE0Z4F01028,False,True,True,ATLANTAELE.NS,
 ATLASCYCLE,Atlas Cycles (Haryana) Limited,Unclassified,INE446A01025,False,False,False,ATLASCYCLE.NS,23-OCT-1996
 ATUL,Atul Ltd.,Chemicals,INE100A01010,True,True,False,ATUL.NS,
@@ -246,6 +247,7 @@ AZAD,Azad Engineering Ltd.,Capital Goods,INE02IJ01035,True,True,False,AZAD.NS,
 AZADIND,Azad India Mobility Limited,Unclassified,INE566M01025,False,False,False,AZADIND.NS,17-AUG-2026
 BAGFILMS,B.A.G Films and Media Limited,Unclassified,INE116D01028,False,False,False,BAGFILMS.NS,17-OCT-2003
 BAGMANE,Bagmane Prime Office REIT,Realty,INE2OVN25015,True,True,False,BAGMANE.NS,
+BAHETI,Baheti Recycling Industries Limited,Unclassified,INE029Q01017,False,False,False,BAHETI.NS,06-NOV-2026
 BAIDFIN,Baid Finserv Limited,Unclassified,INE020D01022,False,False,False,BAIDFIN.NS,20-JAN-2023
 BAJAJ-AUTO,Bajaj Auto Ltd.,Automobile and Auto Components,INE917I01010,True,True,False,BAJAJ-AUTO.NS,
 BAJAJCON,Bajaj Consumer Care Ltd.,Fast Moving Consumer Goods,INE933K01021,False,True,True,BAJAJCON.NS,
@@ -341,6 +343,8 @@ BLIL,Balmer Lawrie Investments Limited,Unclassified,INE525F01025,False,False,Fal
 BLKASHYAP,B. L. Kashyap and Sons Limited,Unclassified,INE350H01032,False,False,False,BLKASHYAP.NS,17-MAR-2006
 BLS,BLS International Services Ltd.,Consumer Services,INE153T01027,True,True,False,BLS.NS,
 BLSE,BLS E-Services Limited,Unclassified,INE0NLT01028,False,False,False,BLSE.NS,06-FEB-2024
+BLSPOLY,BLS Polymers Limited,Unclassified,INE0ZCQ01019,False,False,False,BLSPOLY.NS,03-NOV-2026
+BLUECHIP,Blue Chip India Limited,Unclassified,INE657B01025,False,False,False,BLUECHIP.NS,12-MAR-1997
 BLUECLOUDS,Blue Cloud Softech Solutions Limited,Unclassified,INE373T01047,False,False,False,BLUECLOUDS.NS,17-AUG-2026
 BLUECOAST,Blue Coast Hotels Limited,Unclassified,INE472B01011,False,False,False,BLUECOAST.NS,16-FEB-2000
 BLUEDART,Blue Dart Express Limited,Unclassified,INE233B01017,False,False,False,BLUEDART.NS,12-DEC-2002
@@ -350,6 +354,7 @@ BLUESTONE,BlueStone Jewellery and Lifestyle Ltd.,Consumer Durables,INE304W01038,
 BLUSPRING,Bluspring Enterprises Limited,Unclassified,INE0U4101014,False,False,False,BLUSPRING.NS,11-JUN-2025
 BMWVENTLTD,BMW Ventures Limited,Unclassified,INE965W01036,False,False,False,BMWVENTLTD.NS,01-OCT-2025
 BNAGROCHEM,BN Agrochem Limited,Unclassified,INE00HZ01011,False,False,False,BNAGROCHEM.NS,20-APR-2026
+BNALTD,B & A Limited,Unclassified,INE489D01011,False,False,False,BNALTD.NS,20-APR-2026
 BOHRAIND,Bohra Industries Limited,Unclassified,INE802W01023,False,False,False,BOHRAIND.NS,27-OCT-2022
 BOMDYEING,Bombay Dyeing & Mfg Company Limited,Unclassified,INE032A01023,False,False,False,BOMDYEING.NS,26-APR-1995
 BONDADA,Bondada Engineering Limited,Unclassified,INE0Q8P01029,False,False,False,BONDADA.NS,29-OCT-2026
@@ -368,6 +373,7 @@ BRAHMINFRA,Brahmaputra Infrastructure Limited,Unclassified,INE320I01017,False,Fa
 BRIGADE,Brigade Enterprises Ltd.,Realty,INE791I01019,True,True,False,BRIGADE.NS,
 BRIGHOTEL,Brigade Hotel Ventures Limited,Unclassified,INE03NU01014,False,False,False,BRIGHOTEL.NS,31-JUL-2025
 BRIGHTBR,Bright Brothers Limited,Unclassified,INE630D01010,False,False,False,BRIGHTBR.NS,17-AUG-2026
+BRIGHTOUTD,Bright Outdoor Media Limited,Unclassified,INE0OMI01019,False,False,False,BRIGHTOUTD.NS,06-NOV-2026
 BRITANNIA,Britannia Industries Ltd.,Fast Moving Consumer Goods,INE216A01030,True,True,False,BRITANNIA.NS,
 BRNL,Bharat Road Network Limited,Unclassified,INE727S01012,False,False,False,BRNL.NS,18-SEP-2017
 BROOKS,Brooks Laboratories Limited,Unclassified,INE650L01011,False,False,False,BROOKS.NS,05-SEP-2011
@@ -462,12 +468,14 @@ COMSYN,Commercial Syn Bags Limited,Unclassified,INE073V01015,False,False,False,C
 CONCOR,Container Corporation of India Ltd.,Services,INE111A01025,True,True,False,CONCOR.NS,
 CONCORDBIO,Concord Biotech Ltd.,Healthcare,INE338H01029,True,True,False,CONCORDBIO.NS,
 CONFIPET,Confidence Petroleum India Limited,Unclassified,INE552D01024,False,False,False,CONFIPET.NS,13-JUN-2019
+CONSOFINVT,Consolidated Finvest & Holdings Limited,Unclassified,INE025A01027,False,False,False,CONSOFINVT.NS,29-MAR-2005
 CONTROLPR,Control Print Limited,Unclassified,INE663B01015,False,False,False,CONTROLPR.NS,24-JUN-2016
 CORALFINAC,Coral India Finance & Housing Limited,Unclassified,INE558D01021,False,False,False,CORALFINAC.NS,25-MAR-1996
 CORDELIA,Waterways Leisure Tourism Limited,Unclassified,INE0LZF01039,False,False,False,CORDELIA.NS,01-JUL-2026
 COROMANDEL,Coromandel International Ltd.,Chemicals,INE169A01031,True,True,False,COROMANDEL.NS,
 CORONA,CORONA Remedies Limited,Unclassified,INE02ZQ01018,False,False,False,CORONA.NS,15-DEC-2025
 COSMOFIRST,COSMO FIRST LIMITED,Unclassified,INE757A01017,False,False,False,COSMOFIRST.NS,25-MAY-1995
+COUNCODOS,Country Condo's Limited,Unclassified,INE695B01025,False,False,False,COUNCODOS.NS,22-JAN-2009
 CPEDU,Career Point Edutech Limited,Unclassified,INE0P6P01016,False,False,False,CPEDU.NS,05-SEP-2025
 CPL,Captain Polyplast Limited,Unclassified,INE536P01021,False,False,False,CPL.NS,23-JUL-2026
 CPPLUS,Aditya Infotech Ltd.,Capital Goods,INE819V01029,True,True,False,CPPLUS.NS,
@@ -477,6 +485,7 @@ CRAVATEX,Cravatex Limited,Unclassified,INE145E01017,False,False,False,CRAVATEX.N
 CREATIVEYE,Creative Eye Limited,Unclassified,INE230B01021,False,False,False,CREATIVEYE.NS,20-DEC-2000
 CREDITACC,CreditAccess Grameen Ltd.,Financial Services,INE741K01010,True,True,False,CREDITACC.NS,
 CREST,Crest Ventures Limited,Unclassified,INE559D01011,False,False,False,CREST.NS,27-DEC-2006
+CRESTO,CRESTO TECHNO LIMITED,Unclassified,INE203Y01012,False,False,False,CRESTO.NS,08-JUL-2020
 CRISIL,CRISIL Ltd.,Financial Services,INE007A01025,True,True,False,CRISIL.NS,
 CRIZAC,Crizac Limited,Unclassified,INE0S4R01014,False,False,False,CRIZAC.NS,09-JUL-2025
 CROMPTON,Crompton Greaves Consumer Electricals Ltd.,Consumer Durables,INE299U01018,True,True,False,CROMPTON.NS,
@@ -487,6 +496,7 @@ CSM,CSM Technologies Limited,Unclassified,INE0ZK601013,False,False,False,CSM.NS,
 CUB,City Union Bank Ltd.,Financial Services,INE491A01021,True,True,False,CUB.NS,
 CUMMINSIND,Cummins India Ltd.,Capital Goods,INE298A01020,True,True,False,CUMMINSIND.NS,
 CUPID,Cupid Ltd.,Fast Moving Consumer Goods,INE509F01029,True,True,False,CUPID.NS,
+CURAA,Cura Technologies Limited,Unclassified,INE117B01020,False,False,False,CURAA.NS,21-MAR-2025
 CYBERTECH,Cybertech Systems And Software Limited,Unclassified,INE214A01019,False,False,False,CYBERTECH.NS,27-JAN-1999
 CYIENT,Cyient Ltd.,Information Technology,INE136B01020,True,True,False,CYIENT.NS,
 CYIENTDLM,Cyient DLM Limited,Unclassified,INE055S01018,False,False,False,CYIENTDLM.NS,10-JUL-2023
@@ -512,7 +522,6 @@ DCM,DCM  Limited,Unclassified,INE498A01018,False,False,False,DCM.NS,29-MAR-1995
 DCMFINSERV,DCM Financial Services Limited,Unclassified,INE891B01012,False,False,False,DCMFINSERV.NS,21-MAY-1997
 DCMSHRIRAM,DCM Shriram Limited,Unclassified,INE499A01024,False,False,False,DCMSHRIRAM.NS,12-APR-1995
 DCMSIL,DCM Shriram International Limited,Unclassified,INE0OU201013,False,False,False,DCMSIL.NS,17-FEB-2026
-DCMSRIND,DCM Shriram Industries Limited,Unclassified,INE843D01027,False,False,False,DCMSRIND.NS,24-DEC-2021
 DCW,DCW Limited,Unclassified,INE500A01029,False,False,False,DCW.NS,25-MAY-1995
 DCXINDIA,DCX Systems Limited,Unclassified,INE0KL801015,False,False,False,DCXINDIA.NS,11-NOV-2022
 DDEVPLSTIK,Ddev Plastiks Industries Limited,Unclassified,INE0HR601026,False,False,False,DDEVPLSTIK.NS,15-JAN-2025
@@ -549,6 +558,7 @@ DIFFNKG,Diffusion Engineers Limited,Unclassified,INE184O01015,False,False,False,
 DIGIDRIVE,Digidrive Distributors Limited,Unclassified,INE0PSC01024,False,False,False,DIGIDRIVE.NS,10-JAN-2024
 DIGISPICE,DiGiSPICE Technologies Limited,Unclassified,INE927C01020,False,False,False,DIGISPICE.NS,27-MAY-2008
 DIGITIDE,Digitide Solutions Limited,Unclassified,INE0U4701011,False,False,False,DIGITIDE.NS,11-JUN-2025
+DIGJAMLMTD,Digjam Limited,Unclassified,INE731U01028,False,False,False,DIGJAMLMTD.NS,18-OCT-2021
 DISAQ,Disa India Limited,Unclassified,INE131C01011,False,False,False,DISAQ.NS,20-APR-2026
 DISHTV,Dish TV India Limited,Unclassified,INE836F01026,False,False,False,DISHTV.NS,18-APR-2007
 DIVGIITTS,Divgi Torqtransfer Systems Limited,Unclassified,INE753U01022,False,False,False,DIVGIITTS.NS,14-MAR-2023
@@ -567,14 +577,15 @@ DOLLEX,Dollex Agrotech Limited,Unclassified,INE0JHH01011,False,False,False,DOLLE
 DOLPHIN,Dolphin Offshore Enterprises (India) Limited,Unclassified,INE920A01037,False,False,False,DOLPHIN.NS,21-AUG-2023
 DOMS,DOMS Industries Ltd.,Fast Moving Consumer Goods,INE321T01012,True,True,False,DOMS.NS,
 DONEAR,Donear Industries Limited,Unclassified,INE668D01028,False,False,False,DONEAR.NS,20-DEC-2006
-DPABHUSHAN,D. P. Abhushan Limited,Unclassified,INE266Y01019,False,False,False,DPABHUSHAN.NS,03-NOV-2020
 DPWIRES,D P Wires Limited,Unclassified,INE864X01013,False,False,False,DPWIRES.NS,17-JAN-2020
 DRAGARWQ,Dr Agarwals Eye Hospital Limited,Unclassified,INE934C01018,False,False,False,DRAGARWQ.NS,20-APR-2026
 DRCSYSTEMS,DRC Systems India Limited,Unclassified,INE03RS01027,False,False,False,DRCSYSTEMS.NS,10-MAR-2021
 DREAMFOLKS,Dreamfolks Services Limited,Unclassified,INE0JS101016,False,False,False,DREAMFOLKS.NS,06-SEP-2022
 DREDGECORP,Dredging Corporation of India Limited,Unclassified,INE506A01018,False,False,False,DREDGECORP.NS,15-JAN-2004
 DRREDDY,Dr. Reddy's Laboratories Ltd.,Healthcare,INE089A01031,True,True,False,DRREDDY.NS,
+DSFCL,DCM Shriram Fine Chemicals Limited,Unclassified,INE0OFM01015,False,False,False,DSFCL.NS,17-FEB-2026
 DSSL,Dynacons Systems & Solutions Limited,Unclassified,INE417B01040,False,False,False,DSSL.NS,01-DEC-2011
+DTIL,Dhunseri Tea & Industries Limited,Unclassified,INE341R01014,False,False,False,DTIL.NS,20-JAN-2015
 DUCON,Ducon Infratechnologies Limited,Unclassified,INE741L01018,False,False,False,DUCON.NS,09-OCT-2012
 DVL,Dhunseri Ventures Limited,Unclassified,INE477B01010,False,False,False,DVL.NS,11-JAN-2008
 DWARKESH,Dwarikesh Sugar Industries Limited,Unclassified,INE366A01041,False,False,False,DWARKESH.NS,31-DEC-2004
@@ -585,9 +596,11 @@ E2E,E2E NETWORKS Ltd.,Information Technology,INE255Z01027,False,True,True,E2E.NS
 EASEMYTRIP,Easy Trip Planners Limited,Unclassified,INE07O001026,False,False,False,EASEMYTRIP.NS,19-MAR-2021
 EASTWEST,East West Freight Carriers Limited,Unclassified,INE595R01023,False,False,False,EASTWEST.NS,17-AUG-2026
 EBGNG,GNG Electronics Ltd.,Information Technology,INE18JU01028,False,True,True,EBGNG.NS,
+EBIX,EBIX Limited,Unclassified,INE432F01032,False,False,False,EBIX.NS,17-AUG-2026
 ECLERX,eClerx Services Ltd.,Services,INE738I01010,True,True,False,ECLERX.NS,
 ECORECO,Eco Recycling Limited,Unclassified,INE316A01038,False,False,False,ECORECO.NS,17-AUG-2026
 ECOSMOBLTY,Ecos (India) Mobility & Hospitality Limited,Unclassified,INE06HJ01020,False,False,False,ECOSMOBLTY.NS,04-SEP-2024
+EDELALTS,EAAA India Alternatives Limited,Unclassified,INE528L01027,False,False,False,EDELALTS.NS,02-NOV-2026
 EDELWEISS,Edelweiss Financial Services Ltd.,Financial Services,INE532F01054,False,True,True,EDELWEISS.NS,
 EFCIL,EFC (I) Limited,Unclassified,INE886D01026,False,False,False,EFCIL.NS,20-AUG-2025
 EICHERMOT,Eicher Motors Ltd.,Automobile and Auto Components,INE066A01021,True,True,False,EICHERMOT.NS,
@@ -598,6 +611,7 @@ EIHAHOTELS,EIH Associated Hotels Limited,Unclassified,INE276C01014,False,False,F
 EIHOTEL,EIH Ltd.,Consumer Services,INE230A01023,True,True,False,EIHOTEL.NS,
 EIMCOELECO,Eimco Elecon (India) Limited,Unclassified,INE158B01016,False,False,False,EIMCOELECO.NS,17-APR-1996
 EKC,Everest Kanto Cylinder Limited,Unclassified,INE184H01027,False,False,False,EKC.NS,15-DEC-2005
+EKI,EKI Energy Services Limited,Unclassified,INE0CPR01018,False,False,False,EKI.NS,17-AUG-2026
 ELANTAS,Elantas Beck India Limited,Unclassified,INE280B01018,False,False,False,ELANTAS.NS,20-APR-2026
 ELDEHSG,Eldeco Housing And Industries Limited,Unclassified,INE668G01021,False,False,False,ELDEHSG.NS,12-APR-2022
 ELECON,Elecon Engineering Co. Ltd.,Capital Goods,INE205B01031,True,True,False,ELECON.NS,
@@ -629,6 +643,7 @@ ENERGYDEV,Energy Development Company Limited,Unclassified,INE306C01019,False,Fal
 ENGINERSIN,Engineers India Ltd.,Construction,INE510A01028,True,True,False,ENGINERSIN.NS,
 ENIL,Entertainment Network (India) Limited,Unclassified,INE265F01028,False,False,False,ENIL.NS,15-FEB-2006
 ENKEIWHEL,Enkei Wheels (India) Limited,Unclassified,INE130L01014,False,False,False,ENKEIWHEL.NS,17-AUG-2026
+ENNATURE,Ennature Bio Pharma Ltd.,Healthcare,INE2WCT01016,False,True,True,ENNATURE.NS,
 ENRIN,Siemens Energy India Ltd.,Capital Goods,INE1NPP01017,True,True,False,ENRIN.NS,
 ENTERO,Entero Healthcare Solutions Ltd.,Consumer Services,INE010601016,False,True,True,ENTERO.NS,
 EPACK,EPACK Durable Limited,Unclassified,INE0G5901015,False,False,False,EPACK.NS,30-JAN-2024
@@ -638,6 +653,7 @@ EPL,EPL Ltd.,Capital Goods,INE255A01020,False,True,True,EPL.NS,
 EQUITASBNK,Equitas Small Finance Bank Ltd.,Financial Services,INE063P01018,False,True,True,EQUITASBNK.NS,
 ERIS,Eris Lifesciences Ltd.,Healthcare,INE406M01024,False,True,True,ERIS.NS,
 ESABINDIA,Esab India Limited,Unclassified,INE284A01012,False,False,False,ESABINDIA.NS,01-NOV-1995
+ESAFSFB,ESAF Small Finance Bank Limited,Unclassified,INE818W01011,False,False,False,ESAFSFB.NS,10-NOV-2023
 ESCORTS,Escorts Kubota Ltd.,Capital Goods,INE042A01014,True,True,False,ESCORTS.NS,
 ESDS,ESDS Software Solution Limited,Unclassified,INE0DRI01029,False,False,False,ESDS.NS,04-SEP-2026
 ESSARSHPNG,Essar Shipping Limited,Unclassified,INE122M01019,False,False,False,ESSARSHPNG.NS,15-NOV-2011
@@ -650,6 +666,7 @@ EUROBOND,Euro Panel Products Limited,Unclassified,INE505V01016,False,False,False
 EUROPRATIK,Euro Pratik Sales Limited,Unclassified,INE198501012,False,False,False,EUROPRATIK.NS,23-SEP-2025
 EVEREADY,Eveready Industries India Limited,Unclassified,INE128A01029,False,False,False,EVEREADY.NS,27-APR-2005
 EVERESTIND,Everest Industries Limited,Unclassified,INE295A01018,False,False,False,EVERESTIND.NS,29-MAR-1995
+EVONILE,Evonile Pharma Limited,Unclassified,INE234A01025,False,False,False,EVONILE.NS,20-APR-2026
 EXCELINDUS,Excel Industries Limited,Unclassified,INE369A01029,False,False,False,EXCELINDUS.NS,16-JUN-2004
 EXCELSOFT,Excelsoft Technologies Limited,Unclassified,INE606N01019,False,False,False,EXCELSOFT.NS,26-NOV-2025
 EXICOM,Exicom Tele-Systems Limited,Unclassified,INE777F01014,False,False,False,EXICOM.NS,05-MAR-2024
@@ -680,6 +697,7 @@ FIRSTCRY,Brainbees Solutions Ltd.,Consumer Services,INE02RE01045,True,True,False
 FISCHER,Fischer Medical Ventures Limited,Unclassified,INE771F01041,False,False,False,FISCHER.NS,10-JUL-2025
 FIVESTAR,Five-Star Business Finance Ltd.,Financial Services,INE128S01021,True,True,False,FIVESTAR.NS,
 FLAIR,Flair Writing Industries Limited,Unclassified,INE00Y201027,False,False,False,FLAIR.NS,01-DEC-2023
+FLEXITUFF,Flexituff Ventures International Limited,Unclassified,INE060J01017,False,False,False,FLEXITUFF.NS,19-OCT-2011
 FLUOROCHEM,Gujarat Fluorochemicals Ltd.,Chemicals,INE09N301011,True,True,False,FLUOROCHEM.NS,
 FMGOETZE,Federal-Mogul Goetze (India) Limited.,Unclassified,INE529A01010,False,False,False,FMGOETZE.NS,08-FEB-1995
 FMNL,Future Market Networks Limited,Unclassified,INE360L01017,False,False,False,FMNL.NS,31-DEC-2010
@@ -704,12 +722,15 @@ GALLANTT,Gallantt Ispat Ltd.,Capital Goods,INE297H01019,True,True,False,GALLANTT
 GANDHAR,Gandhar Oil Refinery (India) Limited,Unclassified,INE717W01049,False,False,False,GANDHAR.NS,30-NOV-2023
 GANDHITUBE,Gandhi Special Tubes Limited,Unclassified,INE524B01027,False,False,False,GANDHITUBE.NS,31-JAN-2007
 GANECOS,Ganesha Ecosphere Limited,Unclassified,INE845D01014,False,False,False,GANECOS.NS,09-MAR-2015
+GANESHBE,Ganesh Benzoplast Limited,Unclassified,INE388A01029,False,False,False,GANESHBE.NS,16-SEP-2021
 GANESHCP,Ganesh Consumer Products Limited,Unclassified,INE652V01016,False,False,False,GANESHCP.NS,29-SEP-2025
 GANESHHOU,GANESH HOUSING LIMITED,Unclassified,INE460C01014,False,False,False,GANESHHOU.NS,02-MAR-2007
 GANGAFORGE,Ganga Forging Limited,Unclassified,INE691Z01023,False,False,False,GANGAFORGE.NS,06-JUL-2021
 GANGESSECU,Ganges Securities Limited,Unclassified,INE335W01016,False,False,False,GANGESSECU.NS,28-JUL-2017
 GARFIBRES,Garware Technical Fibres Limited,Unclassified,INE276A01018,False,False,False,GARFIBRES.NS,03-APR-2007
 GARUDA,Garuda Construction and Engineering Limited,Unclassified,INE0JVO01026,False,False,False,GARUDA.NS,15-OCT-2024
+GATECH,GACM Technologies Limited,Unclassified,INE224E01028,False,False,False,GATECH.NS,25-JUL-2016
+GATECHDVR,GACM Technologies Limited,Unclassified,INE224E01036,False,False,False,GATECHDVR.NS,10-OCT-2017
 GATEWAY,Gateway Distriparks Limited,Unclassified,INE079J01017,False,False,False,GATEWAY.NS,22-MAR-2022
 GAUDIUMIVF,Gaudium IVF and Women Health Limited,Unclassified,INE0P8B01020,False,False,False,GAUDIUMIVF.NS,27-FEB-2026
 GAYAHWS,Gayatri Highways Limited,Unclassified,INE287Z01012,False,False,False,GAYAHWS.NS,28-JUN-2018
@@ -742,7 +763,6 @@ GLASSWALL,Glass Wall Systems (India) Limited,Unclassified,INE644Q01039,False,Fal
 GLAXO,Glaxosmithkline Pharmaceuticals Ltd.,Healthcare,INE159A01016,True,True,False,GLAXO.NS,
 GLENMARK,Glenmark Pharmaceuticals Ltd.,Healthcare,INE935A01035,True,True,False,GLENMARK.NS,
 GLFL,Gujarat Lease Financing Limited,Unclassified,INE540A01017,False,False,False,GLFL.NS,08-FEB-1995
-GLOBAL,Global Education Limited,Unclassified,INE291W01037,False,False,False,GLOBAL.NS,07-DEC-2020
 GLOBALE,Globale Tessile Limited,Unclassified,INE0URU01010,False,False,False,GLOBALE.NS,27-AUG-2024
 GLOBALVECT,Global Vectra Helicorp Limited,Unclassified,INE792H01019,False,False,False,GLOBALVECT.NS,27-OCT-2006
 GLOBE,GLOBE ENTERPRISES (INDIA) LIMITED,Unclassified,INE581X01021,False,False,False,GLOBE.NS,07-OCT-2020
@@ -757,7 +777,7 @@ GMRAIRPORT,GMR Airports Ltd.,Services,INE776C01039,True,True,False,GMRAIRPORT.NS
 GMRP&UI,GMR Power and Urban Infra Ltd.,Power,INE0CU601026,False,True,True,GMRP&UI.NS,
 GNA,GNA Axles Limited,Unclassified,INE934S01014,False,False,False,GNA.NS,26-SEP-2016
 GNFC,Gujarat Narmada Valley Fertilizers and Chemicals Ltd.,Chemicals,INE113A01013,False,True,True,GNFC.NS,
-GNRL,Gujarat Natural Resources Limited,Unclassified,INE207H01018,False,False,False,GNRL.NS,20-APR-2026
+GNRL,Gujarat Natural Resources Limited,Unclassified,INE207H01026,False,False,False,GNRL.NS,20-APR-2026
 GOACARBON,Goa Carbon Limited,Unclassified,INE426D01013,False,False,False,GOACARBON.NS,05-JUN-2007
 GOCLCORP,GOCL Corporation Limited,Unclassified,INE077F01035,False,False,False,GOCLCORP.NS,26-JUN-2014
 GOCOLORS,Go Fashion (India) Limited,Unclassified,INE0BJS01011,False,False,False,GOCOLORS.NS,30-NOV-2021
@@ -814,6 +834,7 @@ GUJTHEM,Gujarat Themis Biosyn Limited,Unclassified,INE942C01045,False,False,Fals
 GULFOILLUB,Gulf Oil Lubricants India Limited,Unclassified,INE635Q01029,False,False,False,GULFOILLUB.NS,31-JUL-2014
 GULPOLY,Gulshan Polyols Limited,Unclassified,INE255D01024,False,False,False,GULPOLY.NS,28-JAN-2015
 GVPIL,GE Power India Limited,Unclassified,INE878A01011,False,False,False,GVPIL.NS,19-APR-2000
+GVPTECH,GVP Infotech Limited,Unclassified,INE382T01030,False,False,False,GVPTECH.NS,06-SEP-2022
 GVT&D,GE Vernova T&D India Ltd.,Capital Goods,INE200A01026,True,True,False,GVT&D.NS,
 GYFTR,Gyftr Limited,Unclassified,INE724A01017,False,False,False,GYFTR.NS,10-JUL-2026
 HAL,Hindustan Aeronautics Ltd.,Capital Goods,INE066F01020,True,True,False,HAL.NS,
@@ -882,6 +903,7 @@ HITECH,Hi-Tech Pipes Limited,Unclassified,INE106T01025,False,False,False,HITECH.
 HLEGLAS,HLE Glascoat Limited,Unclassified,INE461D01028,False,False,False,HLEGLAS.NS,09-FEB-2023
 HLVLTD,HLV LIMITED,Unclassified,INE102A01024,False,False,False,HLVLTD.NS,19-JUL-1995
 HMAAGRO,HMA Agro Industries Limited,Unclassified,INE0ECP01024,False,False,False,HMAAGRO.NS,04-JUL-2023
+HMVL,Hindustan Media Ventures Limited,Unclassified,INE871K01015,False,False,False,HMVL.NS,21-JUL-2010
 HNDFDS,Hindustan Foods Limited,Unclassified,INE254N01026,False,False,False,HNDFDS.NS,06-JUN-2023
 HOMEFIRST,Home First Finance Company India Ltd.,Financial Services,INE481N01025,True,True,False,HOMEFIRST.NS,
 HONASA,Honasa Consumer Ltd.,Fast Moving Consumer Goods,INE0J5401028,True,True,False,HONASA.NS,
@@ -921,6 +943,7 @@ IGARASHI,Igarashi Motors India Limited,Unclassified,INE188B01013,False,False,Fal
 IGCL,Indogulf Cropsciences Limited,Unclassified,INE05J901018,False,False,False,IGCL.NS,03-JUL-2025
 IGIL,International Gemological Institute Ltd.,Services,INE0Q9301021,True,True,False,IGIL.NS,
 IGL,Indraprastha Gas Ltd.,Oil Gas & Consumable Fuels,INE203G01027,True,True,False,IGL.NS,
+IGLSPIRITS,IGL Spirits Ltd.,Fast Moving Consumer Goods,INE2W6901017,False,True,True,IGLSPIRITS.NS,
 IGPL,IG Petrochemicals Limited,Unclassified,INE204A01010,False,False,False,IGPL.NS,29-JAN-2007
 IIFL,IIFL Finance Ltd.,Financial Services,INE530B01024,True,True,False,IIFL.NS,
 IIFLCAPS,IIFL Capital Services Ltd.,Financial Services,INE489L01022,False,True,True,IIFLCAPS.NS,
@@ -1101,6 +1124,7 @@ KARURVYSYA,Karur Vysya Bank Ltd.,Financial Services,INE036D01028,True,True,False
 KAUSHALYA,Kaushalya Infrastructure Development Corporation Limited,Unclassified,INE234I01028,False,False,False,KAUSHALYA.NS,14-DEC-2007
 KAYNES,Kaynes Technology India Ltd.,Capital Goods,INE918Z01012,True,True,False,KAYNES.NS,
 KCP,KCP Limited,Unclassified,INE805C01028,False,False,False,KCP.NS,09-APR-1997
+KCPSUGIND,KCP Sugar and Industries Corporation Limited,Unclassified,INE790B01024,False,False,False,KCPSUGIND.NS,11-JUN-1997
 KDDL,KDDL Limited,Unclassified,INE291D01011,False,False,False,KDDL.NS,23-MAR-2016
 KDGREEN,KD Green Industries Limited,Unclassified,INE348N01042,False,False,False,KDGREEN.NS,17-AUG-2026
 KEC,Kec International Ltd.,Construction,INE389H01022,True,True,False,KEC.NS,
@@ -1135,7 +1159,7 @@ KJMCFIN,KJMC Financial Services Limited,Unclassified,INE533C01018,False,False,Fa
 KKCL,Kewal Kiran Clothing Limited,Unclassified,INE401H01017,False,False,False,KKCL.NS,13-APR-2006
 KLBRENG-B,Kilburn Engineering Limited,Unclassified,INE338F01015,False,False,False,KLBRENG-B.NS,20-APR-2026
 KMCSHIL,K M C Speciality Hospitals (India) Limited,Unclassified,INE879K01018,False,False,False,KMCSHIL.NS,17-AUG-2026
-KMEW,Knowledge Marine & Engineering Works Ltd.,Services,INE0CJD01029,False,True,True,KMEW.NS,
+KMEW,Knowledge Marine & Engineering Works Ltd.,Services,INE0CJD01037,False,True,True,KMEW.NS,
 KMSUGAR,K.M.Sugar Mills Limited,Unclassified,INE157H01023,False,False,False,KMSUGAR.NS,31-MAY-2007
 KNACK,Knack Packaging Limited,Unclassified,INE17QZ01016,False,False,False,KNACK.NS,08-JUL-2026
 KNAGRI,KN Agri Resources Limited,Unclassified,INE0KNW01016,False,False,False,KNAGRI.NS,09-DEC-2025
@@ -1196,17 +1220,17 @@ LAURUSLABS,Laurus Labs Ltd.,Healthcare,INE947Q01028,True,True,False,LAURUSLABS.N
 LAXMICOT,Laxmi Cotspin Limited,Unclassified,INE801V01019,False,False,False,LAXMICOT.NS,12-NOV-2021
 LAXMIDENTL,Laxmi Dental Limited,Unclassified,INE0WO601020,False,False,False,LAXMIDENTL.NS,20-JAN-2025
 LAXMIINDIA,Laxmi India Finance Limited,Unclassified,INE06WU01026,False,False,False,LAXMIINDIA.NS,05-AUG-2025
+LCCINFOTEC,LCC Infotech Limited,Unclassified,INE938A01021,False,False,False,LCCINFOTEC.NS,02-MAR-2000
 LCCPROJECT,LCC Projects Limited,Unclassified,INE1FPN01026,False,False,False,LCCPROJECT.NS,17-SEP-2026
 LCL,Lohia Corp Limited,Unclassified,INE0QJW01029,False,False,False,LCL.NS,30-JUL-2026
 LEAPIND,LEAP India Limited,Unclassified,INE00GO01025,False,False,False,LEAPIND.NS,14-AUG-2026
-LEMERITE,Le Merite Exports Limited,Unclassified,INE0G1L01025,False,False,False,LEMERITE.NS,12-DEC-2025
+LEENEE,Lee & Nee Softwares Exports Limited,Unclassified,INE791B01014,False,False,False,LEENEE.NS,17-AUG-2026
 LEMONTREE,Lemon Tree Hotels Ltd.,Consumer Services,INE970X01018,True,True,False,LEMONTREE.NS,
 LENSKART,Lenskart Solutions Ltd.,Consumer Services,INE956O01016,True,True,False,LENSKART.NS,
 LEXUS,Lexus Granito (India) Limited,Unclassified,INE500X01013,False,False,False,LEXUS.NS,13-MAR-2023
 LFIC,Lakshmi Finance & Industrial Corporation Limited,Unclassified,INE850E01012,False,False,False,LFIC.NS,15-APR-2015
 LGBBROSLTD,LG Balakrishnan & Bros Limited,Unclassified,INE337A01034,False,False,False,LGBBROSLTD.NS,30-MAR-2010
 LGEINDIA,LG Electronics India Ltd.,Consumer Durables,INE324D01010,True,True,False,LGEINDIA.NS,
-LGHL,Laxmi Goldorna House Limited,Unclassified,INE258Y01016,False,False,False,LGHL.NS,10-NOV-2023
 LIBAS,Libas Consumer Products Limited,Unclassified,INE908V01012,False,False,False,LIBAS.NS,23-JUL-2019
 LIBERTSHOE,Liberty Shoes Limited,Unclassified,INE557B01019,False,False,False,LIBERTSHOE.NS,27-SEP-1995
 LICHSGFIN,LIC Housing Finance Ltd.,Financial Services,INE115A01026,True,True,False,LICHSGFIN.NS,
@@ -1259,6 +1283,7 @@ MAHLIFE,Mahindra Lifespace Developers Limited,Unclassified,INE813A01018,False,Fa
 MAHLOG,Mahindra Logistics Limited,Unclassified,INE766P01016,False,False,False,MAHLOG.NS,10-NOV-2017
 MAHSEAMLES,Maharashtra Seamless Limited,Unclassified,INE271B01025,False,False,False,MAHSEAMLES.NS,25-AUG-2004
 MAITHANALL,Maithan Alloys Limited,Unclassified,INE683C01011,False,False,False,MAITHANALL.NS,05-JUL-2011
+MAJESAUT,Majestic Auto Limited,Unclassified,INE201B01022,False,False,False,MAJESAUT.NS,20-APR-2026
 MAKERSL,Makers Laboratories Limited,Unclassified,INE987A01010,False,False,False,MAKERSL.NS,17-AUG-2026
 MALLCOM,Mallcom (India) Limited,Unclassified,INE389C01015,False,False,False,MALLCOM.NS,02-FEB-2022
 MALUPAPER,Malu Paper Mills Limited,Unclassified,INE383H01017,False,False,False,MALUPAPER.NS,05-APR-2006
@@ -1311,6 +1336,7 @@ MCLOUD,Magellanic Cloud Limited,Unclassified,INE613C01026,False,False,False,MCLO
 MCX,Multi Commodity Exchange of India Ltd.,Financial Services,INE745G01043,True,True,False,MCX.NS,
 MEDANTA,Global Health Ltd.,Healthcare,INE474Q01031,True,True,False,MEDANTA.NS,
 MEDIASSIST,Medi Assist Healthcare Services Limited,Unclassified,INE456Z01021,False,False,False,MEDIASSIST.NS,23-JAN-2024
+MEDICAPQ,Medi Caps Limited,Unclassified,INE442D01010,False,False,False,MEDICAPQ.NS,17-AUG-2026
 MEDICO,Medico Remedies Limited,Unclassified,INE630Y01024,False,False,False,MEDICO.NS,26-MAY-2022
 MEDPLUS,Medplus Health Services Ltd.,Consumer Services,INE804L01022,False,True,True,MEDPLUS.NS,
 MEESHO,Meesho Ltd.,Consumer Services,INE0VDM01015,True,True,False,MEESHO.NS,
@@ -1329,7 +1355,6 @@ MGL,Mahanagar Gas Ltd.,Oil Gas & Consumable Fuels,INE002S01010,True,True,False,M
 MHRIL,Mahindra Holidays & Resorts India Limited,Unclassified,INE998I01010,False,False,False,MHRIL.NS,16-JUL-2009
 MICEL,MIC Electronics Limited,Unclassified,INE287C01037,False,False,False,MICEL.NS,17-DEC-2021
 MIDHANI,Mishra Dhatu Nigam Ltd.,Capital Goods,INE099Z01011,False,True,True,MIDHANI.NS,
-MIDWESTLTD,Midwest Limited,Unclassified,INE0XAD01024,False,False,False,MIDWESTLTD.NS,24-OCT-2025
 MIIL,Meghna Infracon Infrastructure Limited,Unclassified,INE898Q01015,False,False,False,MIIL.NS,17-AUG-2026
 MINDACORP,Minda Corporation Ltd.,Automobile and Auto Components,INE842C01021,True,True,False,MINDACORP.NS,
 MINDTECK,Mindteck (India) Limited,Unclassified,INE110B01017,False,False,False,MINDTECK.NS,02-AUG-2016
@@ -1337,12 +1362,12 @@ MIRZAINT,Mirza International Limited,Unclassified,INE771A01026,False,False,False
 MITCON,MITCON Consultancy & Engineering Services Limited,Unclassified,INE828O01033,False,False,False,MITCON.NS,17-MAR-2022
 MITTAL,Mittal Life Style Limited,Unclassified,INE997Y01027,False,False,False,MITTAL.NS,29-APR-2020
 MKEXIM,M.K. Exim (India) Limited,Unclassified,INE227F01010,False,False,False,MKEXIM.NS,17-AUG-2026
+MKJEWELS,M. K. Sons Fine Jewels Limited,Unclassified,INE2IXO01012,False,False,False,MKJEWELS.NS,04-NOV-2026
 MKPL,M K Proteins Limited,Unclassified,INE964W01021,False,False,False,MKPL.NS,13-JUN-2023
 MLKFOOD,Milkfood Limited,Unclassified,INE588G01021,False,False,False,MLKFOOD.NS,17-AUG-2026
 MMFL,MM Forgings Limited,Unclassified,INE227C01017,False,False,False,MMFL.NS,20-DEC-2006
 MMP,MMP Industries Limited,Unclassified,INE511Y01018,False,False,False,MMP.NS,09-JAN-2020
 MMTC,MMTC Ltd.,Services,INE123F01029,True,True,False,MMTC.NS,
-MMWL,Media Matrix Worldwide Limited,Unclassified,INE200D01020,False,False,False,MMWL.NS,20-APR-2026
 MOBIKWIK,One Mobikwik Systems Limited,Unclassified,INE0HLU01028,False,False,False,MOBIKWIK.NS,18-DEC-2024
 MODINATUR,Modi Naturals Limited,Unclassified,INE537F01012,False,False,False,MODINATUR.NS,11-DEC-2025
 MODIRUBBER,Modi Rubber Limited,Unclassified,INE832A01018,False,False,False,MODIRUBBER.NS,07-FEB-1996
@@ -1357,6 +1382,7 @@ MOLBIO,Molbio Diagnostics Limited,Unclassified,INE869T01028,False,False,False,MO
 MOLDTKPAC,Mold-Tek Packaging Limited,Unclassified,INE893J01029,False,False,False,MOLDTKPAC.NS,23-FEB-2015
 MOMSBELIEF,Rays of Belief Limited,Unclassified,INE1FCO01014,False,False,False,MOMSBELIEF.NS,08-SEP-2026
 MONARCH,Monarch Networth Capital Limited,Unclassified,INE903D01011,False,False,False,MONARCH.NS,06-JAN-2022
+MONEYBOXX,Moneyboxx Finance Limited,Unclassified,INE296Q01012,False,False,False,MONEYBOXX.NS,15-OCT-2025
 MONEYVIEW,Moneyview Limited,Unclassified,INE0PTN01011,False,False,False,MONEYVIEW.NS,01-OCT-2026
 MONTECARLO,Monte Carlo Fashions Limited,Unclassified,INE950M01013,False,False,False,MONTECARLO.NS,19-DEC-2014
 MOSCHIP,Moschip Technologies Limited,Unclassified,INE935B01025,False,False,False,MOSCHIP.NS,05-FEB-2025
@@ -1398,6 +1424,7 @@ NAHARPOLY,Nahar Poly Films Limited,Unclassified,INE308A01027,False,False,False,N
 NAHARSPING,Nahar Spinning Mills Limited,Unclassified,INE290A01027,False,False,False,NAHARSPING.NS,23-MAR-2007
 NAM-INDIA,Nippon Life India Asset Management Ltd.,Financial Services,INE298J01013,True,True,False,NAM-INDIA.NS,
 NARMADA,Narmada Agrobase Limited,Unclassified,INE117Z01029,False,False,False,NARMADA.NS,27-OCT-2022
+NATCAPSUQ,Natural Capsules Limited,Unclassified,INE936B01015,False,False,False,NATCAPSUQ.NS,14-FEB-2025
 NATCOPHARM,NATCO Pharma Ltd.,Healthcare,INE987B01026,True,True,False,NATCOPHARM.NS,
 NATHBIOGEN,Nath Bio-Genes (India) Limited,Unclassified,INE448G01010,False,False,False,NATHBIOGEN.NS,28-JAN-2014
 NATIONALUM,National Aluminium Co. Ltd.,Metals & Mining,INE139A01034,True,True,False,NATIONALUM.NS,
@@ -1466,7 +1493,6 @@ NOIDATOLL,Noida Toll Bridge Company Limited,Unclassified,INE781B01015,False,Fals
 NORBTEAEXP,Norben Tea & Exports Limited,Unclassified,INE369C01017,False,False,False,NORBTEAEXP.NS,26-JUN-1996
 NORTHARC,Northern Arc Capital Ltd.,Financial Services,INE850M01015,False,True,True,NORTHARC.NS,
 NOVAAGRI,Nova Agritech Limited,Unclassified,INE02H701025,False,False,False,NOVAAGRI.NS,31-JAN-2024
-NOVARTIND,Novartis India Limited,Unclassified,INE234A01025,False,False,False,NOVARTIND.NS,20-APR-2026
 NPST,Network People Services Technologies Limited,Unclassified,INE0FFK01017,False,False,False,NPST.NS,30-APR-2025
 NRAIL,N R Agarwal Industries Limited,Unclassified,INE740D01017,False,False,False,NRAIL.NS,05-APR-2017
 NRBBEARING,NRB Bearing Limited,Unclassified,INE349A01021,False,False,False,NRBBEARING.NS,08-MAR-2000
@@ -1486,11 +1512,11 @@ ODIGMA,Odigma Consultancy Solutions Limited,Unclassified,INE054301028,False,Fals
 ODYCORP,Odyssey Corporation Limited,Unclassified,INE839E01023,False,False,False,ODYCORP.NS,17-AUG-2026
 OFSS,Oracle Financial Services Software Ltd.,Information Technology,INE881D01027,True,True,False,OFSS.NS,
 OIL,Oil India Ltd.,Oil Gas & Consumable Fuels,INE274J01014,True,True,False,OIL.NS,
+OILCOUNTUB,Oil Country Tubular Limited,Unclassified,INE591A01010,False,False,False,OILCOUNTUB.NS,30-AUG-1995
 OLAELEC,Ola Electric Mobility Ltd.,Automobile and Auto Components,INE0LXG01040,True,True,False,OLAELEC.NS,
 OLECTRA,Olectra Greentech Ltd.,Automobile and Auto Components,INE260D01016,True,True,False,OLECTRA.NS,
 OMAXAUTO,Omax Autos Limited,Unclassified,INE090B01011,False,False,False,OMAXAUTO.NS,20-FEB-2003
 OMAXE,Omaxe Limited,Unclassified,INE800H01010,False,False,False,OMAXE.NS,09-AUG-2007
-OMFREIGHT,Om Freight Forwarders Limited,Unclassified,INE1BZC01019,False,False,False,OMFREIGHT.NS,08-OCT-2025
 OMINFRAL,OM INFRA LIMITED,Unclassified,INE239D01028,False,False,False,OMINFRAL.NS,17-JUN-2011
 OMNI,Omnitech Engineering Ltd.,Capital Goods,INE0UH301010,False,True,True,OMNI.NS,
 OMPOWER,Om Power Transmission Limited,Unclassified,INE25E901019,False,False,False,OMPOWER.NS,17-APR-2026
@@ -1502,7 +1528,6 @@ ONIDA,Onida Electronics Limited,Unclassified,INE831A01028,False,False,False,ONID
 ONIXSOLAR,Onix Solar Energy Limited,Unclassified,INE173M01012,False,False,False,ONIXSOLAR.NS,17-AUG-2026
 ONMOBILE,OnMobile Global Limited,Unclassified,INE809I01019,False,False,False,ONMOBILE.NS,19-FEB-2008
 OPTIEMUS,Optiemus Infracom Limited,Unclassified,INE350C01017,False,False,False,OPTIEMUS.NS,08-AUG-2017
-OPTIFIN,Optimus Finance Limited,Unclassified,INE031G01022,False,False,False,OPTIFIN.NS,17-AUG-2026
 ORBTEXP,Orbit Exports Limited,Unclassified,INE231G01010,False,False,False,ORBTEXP.NS,05-NOV-2013
 ORCHASP,Orchasp Limited,Unclassified,INE215B01022,False,False,False,ORCHASP.NS,07-FEB-2025
 ORCHPHARMA,Orchid Pharma Limited,Unclassified,INE191A01027,False,False,False,ORCHPHARMA.NS,02-NOV-2020
@@ -1514,6 +1539,7 @@ ORIENTCEM,Orient Cement Limited,Unclassified,INE876N01018,False,False,False,ORIE
 ORIENTCER,ORIENT CERATECH LIMITED,Unclassified,INE569C01020,False,False,False,ORIENTCER.NS,15-DEC-2005
 ORIENTELEC,Orient Electric Limited,Unclassified,INE142Z01019,False,False,False,ORIENTELEC.NS,14-MAY-2018
 ORIENTHOT,Oriental Hotels Limited,Unclassified,INE750A01020,False,False,False,ORIENTHOT.NS,27-AUG-1998
+ORIENTLTD,Orient Press Limited,Unclassified,INE609C01024,False,False,False,ORIENTLTD.NS,03-MAR-2010
 ORIENTPPR,Orient Paper & Industries Limited,Unclassified,INE592A01026,False,False,False,ORIENTPPR.NS,29-MAR-1995
 ORIENTTECH,Orient Technologies Limited,Unclassified,INE0PPK01015,False,False,False,ORIENTTECH.NS,28-AUG-2024
 ORIRAIL,Oriental Rail Infrastructure Limited,Unclassified,INE457G01029,False,False,False,ORIRAIL.NS,17-AUG-2026
@@ -1584,6 +1610,7 @@ PIIND,PI Industries Ltd.,Chemicals,INE603J01030,True,True,False,PIIND.NS,
 PILITA,PIL ITALICA LIFESTYLE LIMITED,Unclassified,INE600A01035,False,False,False,PILITA.NS,07-OCT-2013
 PINELABS,Pine Labs Ltd.,Financial Services,INE15B701018,True,True,False,PINELABS.NS,
 PIONEEREMB,Pioneer Embroideries Limited,Unclassified,INE156C01018,False,False,False,PIONEEREMB.NS,16-MAY-2006
+PIONRINV,Pioneer Investcorp Limited,Unclassified,INE746D01014,False,False,False,PIONRINV.NS,20-APR-2026
 PIRAMALFIN,Piramal Finance Ltd.,Financial Services,INE202B01038,True,True,False,PIRAMALFIN.NS,
 PITTIENG,Pitti Engineering Limited,Unclassified,INE450D01021,False,False,False,PITTIENG.NS,02-FEB-2007
 PIXTRANS,Pix Transmissions Limited,Unclassified,INE751B01018,False,False,False,PIXTRANS.NS,28-APR-2022
@@ -1638,7 +1665,6 @@ PRICOLLTD,Pricol Ltd.,Automobile and Auto Components,INE726V01018,False,True,Tru
 PRIMESECU,Prime Securities Limited,Unclassified,INE032B01021,False,False,False,PRIMESECU.NS,17-JUN-2005
 PRIMO,Primo Chemicals Limited,Unclassified,INE607A01022,False,False,False,PRIMO.NS,22-APR-2025
 PRINCEPIPE,Prince Pipes And Fittings Limited,Unclassified,INE689W01016,False,False,False,PRINCEPIPE.NS,30-DEC-2019
-PRIORITY,Priority Jewels Limited,Unclassified,INE15EH01014,False,False,False,PRIORITY.NS,04-SEP-2026
 PRITI,Priti International Limited,Unclassified,INE974Z01015,False,False,False,PRITI.NS,02-MAR-2022
 PRITIKAUTO,Pritika Auto Industries Limited,Unclassified,INE583R01029,False,False,False,PRITIKAUTO.NS,10-AUG-2021
 PRIVISCL,Privi Speciality Chemicals Ltd.,Chemicals,INE959A01019,True,True,False,PRIVISCL.NS,
@@ -1678,10 +1704,10 @@ RAJOOENG,Rajoo Engineers Limited,Unclassified,INE535F01024,False,False,False,RAJ
 RAJPALAYAM,Rajapalayam Mills Limited,Unclassified,INE296E01026,False,False,False,RAJPALAYAM.NS,20-APR-2026
 RAJRATAN,Rajratan Global Wire Limited,Unclassified,INE451D01029,False,False,False,RAJRATAN.NS,22-MAY-2020
 RAJSREESUG,Rajshree Sugars & Chemicals Limited,Unclassified,INE562B01019,False,False,False,RAJSREESUG.NS,29-MAR-1995
+RAJTV,Raj Television Network Limited,Unclassified,INE952H01027,False,False,False,RAJTV.NS,16-MAR-2007
 RALLIS,Rallis India Ltd.,Chemicals,INE613A01020,False,True,True,RALLIS.NS,
 RAMANEWS,Shree Rama Newsprint Limited,Unclassified,INE278B01020,False,False,False,RAMANEWS.NS,20-SEP-2006
 RAMAPHO,Rama Phosphates Limited,Unclassified,INE809A01032,False,False,False,RAMAPHO.NS,05-AUG-2022
-RAMBHAJO,Advit Jewels Limited,Unclassified,INE1SJO01012,False,False,False,RAMBHAJO.NS,01-JUL-2026
 RAMCOCEM,The Ramco Cements Ltd.,Construction Materials,INE331A01037,True,True,False,RAMCOCEM.NS,
 RAMCOIND,Ramco Industries Limited,Unclassified,INE614A01028,False,False,False,RAMCOIND.NS,06-NOV-1996
 RAMCOSYS,Ramco Systems Limited,Unclassified,INE246B01019,False,False,False,RAMCOSYS.NS,12-APR-2000
@@ -1714,7 +1740,6 @@ REMSONSIND,Remsons Industries Limited,Unclassified,INE474C01023,False,False,Fals
 RENTOMOJO,Rentomojo Limited,Unclassified,INE08T701025,False,False,False,RENTOMOJO.NS,17-SEP-2026
 RENUKA,Shree Renuka Sugars Ltd.,Fast Moving Consumer Goods,INE087H01022,False,True,True,RENUKA.NS,
 REPCOHOME,Repco Home Finance Limited,Unclassified,INE612J01015,False,False,False,REPCOHOME.NS,01-APR-2013
-REPL,Rudrabhishek Enterprises Limited,Unclassified,INE364Z01019,False,False,False,REPL.NS,14-DEC-2020
 REPRO,Repro India Limited,Unclassified,INE461B01014,False,False,False,REPRO.NS,22-DEC-2005
 RESPONIND,Responsive Industries Ltd.,Consumer Durables,INE688D01026,False,True,True,RESPONIND.NS,
 RGL,Renaissance Global Limited,Unclassified,INE722H01024,False,False,False,RGL.NS,12-DEC-2007
@@ -1728,9 +1753,11 @@ RISHABH,Rishabh Instruments Limited,Unclassified,INE0N2P01017,False,False,False,
 RITCO,Ritco Logistics Limited,Unclassified,INE01EG01016,False,False,False,RITCO.NS,12-APR-2022
 RITES,RITES Ltd.,Construction,INE320J01015,True,True,False,RITES.NS,
 RKDL,Ravi Kumar Distilleries Limited,Unclassified,INE722J01012,False,False,False,RKDL.NS,27-DEC-2010
+RKEC,RKEC Projects Limited,Unclassified,INE786W01010,False,False,False,RKEC.NS,18-DEC-2020
 RKFORGE,Ramkrishna Forgings Ltd.,Automobile and Auto Components,INE399G01023,True,True,False,RKFORGE.NS,
 RKSWAMY,R K Swamy Limited,Unclassified,INE0NQ801033,False,False,False,RKSWAMY.NS,12-MAR-2024
 RMC,RMC Switchgears Limited,Unclassified,INE655V01019,False,False,False,RMC.NS,01-APR-2026
+RMDRIP,R M Drip and Sprinklers Systems Limited,Unclassified,INE219Y01026,False,False,False,RMDRIP.NS,30-JUL-2025
 RML,Rane (Madras) Limited,Unclassified,INE050H01012,False,False,False,RML.NS,30-AUG-2005
 ROHLTD,Royal Orchid Hotels Limited,Unclassified,INE283H01019,False,False,False,ROHLTD.NS,06-FEB-2006
 ROLEXRINGS,Rolex Rings Limited,Unclassified,INE645S01024,False,False,False,ROLEXRINGS.NS,09-AUG-2021
@@ -1749,6 +1776,7 @@ RPTECH,Rashi Peripherals Limited,Unclassified,INE0J1F01024,False,False,False,RPT
 RRECL,RDB Real Estate Constructions Limited,Unclassified,INE0AK901016,False,False,False,RRECL.NS,17-AUG-2026
 RRIL,RRIL Limited,Unclassified,INE951M01037,False,False,False,RRIL.NS,20-APR-2026
 RRKABEL,R R Kabel Ltd.,Capital Goods,INE777K01022,True,True,False,RRKABEL.NS,
+RSDFIN,RSD Finance Limited,Unclassified,INE616F01022,False,False,False,RSDFIN.NS,20-APR-2026
 RSL,Rajputana Stainless Limited,Unclassified,INE313L01016,False,False,False,RSL.NS,19-MAR-2026
 RSSOFTWARE,R. S. Software (India) Limited,Unclassified,INE165B01029,False,False,False,RSSOFTWARE.NS,19-MAY-1999
 RSWM,RSWM Limited,Unclassified,INE611A01016,False,False,False,RSWM.NS,15-FEB-1995
@@ -1828,6 +1856,7 @@ SBICARD,SBI Cards and Payment Services Ltd.,Financial Services,INE018E01016,True
 SBIFUNDS,SBI Funds Management Limited,Unclassified,INE640G01020,False,False,False,SBIFUNDS.NS,21-JUL-2026
 SBILIFE,SBI Life Insurance Company Ltd.,Financial Services,INE123W01016,True,True,False,SBILIFE.NS,
 SBIN,State Bank of India,Financial Services,INE062A01020,True,True,False,SBIN.NS,
+SCANSTL,Scan Steels Limited,Unclassified,INE099G01011,False,False,False,SCANSTL.NS,20-APR-2026
 SCHAEFFLER,Schaeffler India Ltd.,Automobile and Auto Components,INE513A01022,True,True,False,SCHAEFFLER.NS,
 SCHAND,S Chand And Company Limited,Unclassified,INE807K01035,False,False,False,SCHAND.NS,09-MAY-2017
 SCHNEIDER,Schneider Electric Infrastructure Ltd.,Capital Goods,INE839M01018,True,True,False,SCHNEIDER.NS,
@@ -1850,6 +1879,7 @@ SERVOTECH,Servotech Renewable Power System Limited,Unclassified,INE782X01033,Fal
 SESHAPAPER,Seshasayee Paper and Boards Limited,Unclassified,INE630A01024,False,False,False,SESHAPAPER.NS,29-MAR-1995
 SETCO,Setco Automotive Limited,Unclassified,INE878E01021,False,False,False,SETCO.NS,01-JUL-2016
 SETL,Standard Engineering Technology Limited,Unclassified,INE0M4D01010,False,False,False,SETL.NS,13-JAN-2025
+SFCTECH,SFC Environmental Technologies Limited,Unclassified,INE0PKN01028,False,False,False,SFCTECH.NS,03-NOV-2026
 SFL,Sheela Foam Ltd.,Consumer Durables,INE916U01025,False,True,True,SFL.NS,
 SGFIN,SG Finserve Limited,Unclassified,INE618R01015,False,False,False,SGFIN.NS,05-AUG-2025
 SGIL,Synergy Green Industries Limited,Unclassified,INE00QT01015,False,False,False,SGIL.NS,28-JUL-2021
@@ -1863,6 +1893,7 @@ SHAHINVEST,Shah Investor's Home Limited,Unclassified,INE029N01014,False,False,Fa
 SHAILY,Shaily Engineering Plastics Ltd.,Consumer Durables,INE151G01028,False,True,True,SHAILY.NS,
 SHAKTIPUMP,Shakti Pumps (India) Ltd.,Capital Goods,INE908D01010,False,True,True,SHAKTIPUMP.NS,
 SHALBY,Shalby Limited,Unclassified,INE597J01018,False,False,False,SHALBY.NS,15-DEC-2017
+SHALPAINTS,Shalimar Paints Limited,Unclassified,INE849C01026,False,False,False,SHALPAINTS.NS,03-MAR-2008
 SHANKARA,Shankara Building Products Limited,Unclassified,INE274V01019,False,False,False,SHANKARA.NS,05-APR-2017
 SHANKESH,Shankesh Jewellers Limited,Unclassified,INE1WFC01025,False,False,False,SHANKESH.NS,25-AUG-2026
 SHANTI,Shanti Overseas (India) Limited,Unclassified,INE933X01016,False,False,False,SHANTI.NS,16-SEP-2021
@@ -1906,6 +1937,7 @@ SHYAMCENT,Shyam Century Ferrous Limited,Unclassified,INE979R01011,False,False,Fa
 SHYAMMETL,Shyam Metalics and Energy Ltd.,Capital Goods,INE810G01011,True,True,False,SHYAMMETL.NS,
 SHYAMTEL,Shyam Telecom Limited,Unclassified,INE635A01023,False,False,False,SHYAMTEL.NS,06-NOV-2006
 SICAGEN,Sicagen India Limited,Unclassified,INE176J01011,False,False,False,SICAGEN.NS,20-APR-2026
+SICALLOG,Sical Logistics Limited,Unclassified,INE075B01020,False,False,False,SICALLOG.NS,12-OCT-2023
 SIEL,Superior Industrial Enterprises Limited,Unclassified,INE843L01012,False,False,False,SIEL.NS,17-AUG-2026
 SIEMENS,Siemens Ltd.,Capital Goods,INE003A01024,True,True,False,SIEMENS.NS,
 SIGACHI,Sigachi Industries Limited,Unclassified,INE0D0K01022,False,False,False,SIGACHI.NS,15-NOV-2021
@@ -1938,7 +1970,6 @@ SMARTLINK,Smartlink Holdings Limited,Unclassified,INE178C01020,False,False,False
 SMARTWORKS,Smartworks Coworking Spaces Limited,Unclassified,INE0NAZ01010,False,False,False,SMARTWORKS.NS,17-JUL-2025
 SMCGLOBAL,SMC Global Securities Limited,Unclassified,INE103C01036,False,False,False,SMCGLOBAL.NS,24-FEB-2021
 SMLMAH,SML Mahindra Ltd.,Capital Goods,INE294B01019,False,True,True,SMLMAH.NS,
-SMLT,Sarthak Metals Limited,Unclassified,INE017W01010,False,False,False,SMLT.NS,25-NOV-2021
 SMSPHARMA,SMS Pharmaceuticals Limited,Unclassified,INE812G01025,False,False,False,SMSPHARMA.NS,28-FEB-2007
 SMT,Sahajanand Medical Technologies Limited,Unclassified,INE356Y01018,False,False,False,SMT.NS,23-OCT-2026
 SNOWMAN,Snowman Logistics Limited,Unclassified,INE734N01019,False,False,False,SNOWMAN.NS,12-SEP-2014
@@ -1954,6 +1985,7 @@ SOMICONVEY,Somi Conveyor Beltings Limited,Unclassified,INE323J01019,False,False,
 SONA,Sonaselection India Limited,Unclassified,INE0LLZ01011,False,False,False,SONA.NS,24-SEP-2026
 SONACOMS,Sona BLW Precision Forgings Ltd.,Automobile and Auto Components,INE073K01018,True,True,False,SONACOMS.NS,
 SONAL,Sonal Mercantile Limited,Unclassified,INE321M01017,False,False,False,SONAL.NS,20-APR-2026
+SONAMLTD,SONAM LIMITED,Unclassified,INE00LM01029,False,False,False,SONAMLTD.NS,07-APR-2022
 SONATSOFTW,Sonata Software Ltd.,Information Technology,INE269A01021,False,True,True,SONATSOFTW.NS,
 SOTL,Savita Oil Technologies Limited,Unclassified,INE035D01020,False,False,False,SOTL.NS,28-JUN-1995
 SOUTHBANK,South Indian Bank Ltd.,Financial Services,INE683A01023,False,True,True,SOUTHBANK.NS,
@@ -1962,6 +1994,7 @@ SPAL,S. P. Apparels Limited,Unclassified,INE212I01016,False,False,False,SPAL.NS,
 SPANDANA,Spandana Sphoorty Financial Limited,Unclassified,INE572J01011,False,False,False,SPANDANA.NS,19-AUG-2019
 SPARC,Sun Pharma Advanced Research Company Ltd.,Healthcare,INE232I01014,False,True,True,SPARC.NS,
 SPCENET,Spacenet Enterprises India Limited,Unclassified,INE970N01027,False,False,False,SPCENET.NS,10-JAN-2017
+SPECTRUM,Spectrum Electrical Industries Limited,Unclassified,INE01EO01010,False,False,False,SPECTRUM.NS,28-MAR-2025
 SPENCERS,Spencer's Retail Limited,Unclassified,INE020801028,False,False,False,SPENCERS.NS,25-JAN-2019
 SPIC,Southern Petrochemicals Industries Corporation  Limited,Unclassified,INE147A01011,False,False,False,SPIC.NS,10-JAN-1996
 SPLIL,SPL Industries Limited,Unclassified,INE978G01016,False,False,False,SPLIL.NS,26-JUL-2005
@@ -1978,6 +2011,7 @@ SRTL,Shree Ram Twistex Limited,Unclassified,INE19GK01015,False,False,False,SRTL.
 SSDL,Saraswati Saree Depot Limited,Unclassified,INE0PQ101010,False,False,False,SSDL.NS,20-AUG-2024
 SSRETAIL,SS Retail Limited,Unclassified,INE1EQW01028,False,False,False,SSRETAIL.NS,23-SEP-2026
 SSWL,Steel Strips Wheels Limited,Unclassified,INE802C01033,False,False,False,SSWL.NS,06-JUN-2005
+STALLION,Stallion India Fluorochemicals Limited,Unclassified,INE0RYC01010,False,False,False,STALLION.NS,23-JAN-2025
 STANLEY,Stanley Lifestyles Limited,Unclassified,INE01A001028,False,False,False,STANLEY.NS,28-JUN-2024
 STAR,Strides Pharma Science Ltd.,Healthcare,INE939A01011,False,True,True,STAR.NS,
 STARCEMENT,Star Cement Limited,Unclassified,INE460H01021,False,False,False,STARCEMENT.NS,16-JUN-2017
@@ -2027,6 +2061,7 @@ SUNSHINE,Sunshine Pictures Limited,Unclassified,INE1B3O01011,False,False,False,S
 SUNTECK,Sunteck Realty Ltd.,Realty,INE805D01034,False,True,True,SUNTECK.NS,
 SUNTV,Sun TV Network Ltd.,Media Entertainment & Publication,INE424H01027,True,True,False,SUNTV.NS,
 SUPERHOUSE,Superhouse Limited,Unclassified,INE712B01010,False,False,False,SUPERHOUSE.NS,26-SEP-2014
+SUPERSPIN,Super Spinning Mills Limited,Unclassified,INE662A01027,False,False,False,SUPERSPIN.NS,08-JUL-2004
 SUPRAJIT,Suprajit Engineering Limited,Unclassified,INE399C01030,False,False,False,SUPRAJIT.NS,18-FEB-2005
 SUPREME,Supreme Holdings & Hospitality (India) Limited,Unclassified,INE822E01011,False,False,False,SUPREME.NS,03-FEB-2025
 SUPREMEIND,Supreme Industries Ltd.,Capital Goods,INE195A01028,True,True,False,SUPREMEIND.NS,
@@ -2054,12 +2089,14 @@ SWARAJENG,Swaraj Engines Limited,Unclassified,INE277A01016,False,False,False,SWA
 SWASTIKAIN,Swastika Infra Limited,Unclassified,INE1QJA01015,False,False,False,SWASTIKAIN.NS,30-SEP-2026
 SWELECTES,Swelect Energy Systems Limited,Unclassified,INE409B01013,False,False,False,SWELECTES.NS,09-MAY-2006
 SWIGGY,Swiggy Ltd.,Consumer Services,INE00H001014,True,True,False,SWIGGY.NS,
+SWISSMLTRY,Swiss Military Consumer Goods Limited,Unclassified,INE010C01025,False,False,False,SWISSMLTRY.NS,17-AUG-2026
 SWSOLAR,Sterling and Wilson Renewable Energy Ltd.,Construction,INE00M201021,False,True,True,SWSOLAR.NS,
 SYMBIOTEC,Symbiotec Pharmalab Limited,Unclassified,INE899I01028,False,False,False,SYMBIOTEC.NS,01-SEP-2026
 SYMPHONY,Symphony Limited,Unclassified,INE225D01027,False,False,False,SYMPHONY.NS,15-JUN-2011
 SYNCOMF,Syncom Formulations (India) Limited,Unclassified,INE312C01025,False,False,False,SYNCOMF.NS,18-NOV-2022
 SYNGENE,Syngene International Ltd.,Healthcare,INE398R01022,True,True,False,SYNGENE.NS,
 SYRMA,Syrma SGS Technology Ltd.,Capital Goods,INE0DYJ01015,True,True,False,SYRMA.NS,
+SYSTMTXC,Systematix Corporate Services Limited,Unclassified,INE356B01024,False,False,False,SYSTMTXC.NS,06-OCT-2025
 TAALTECH,Taal Tech Limited,Unclassified,INE524T01029,False,False,False,TAALTECH.NS,20-APR-2026
 TAINWALCHM,Tainwala Chemical and Plastic (I) Limited,Unclassified,INE123C01018,False,False,False,TAINWALCHM.NS,27-JUL-1995
 TAJGVK,Taj GVK Hotels & Resorts Limited,Unclassified,INE586B01026,False,False,False,TAJGVK.NS,20-DEC-2000
@@ -2129,6 +2166,7 @@ TICL,Twamev Construction and Infrastructure Limited,Unclassified,INE388G01026,Fa
 TIGERLOGS,Tiger Logistics (India) Limited,Unclassified,INE906O01029,False,False,False,TIGERLOGS.NS,18-SEP-2025
 TIIL,Technocraft Industries (India) Limited,Unclassified,INE545H01011,False,False,False,TIIL.NS,12-FEB-2007
 TIINDIA,Tube Investments of India Ltd.,Automobile and Auto Components,INE974X01010,True,True,False,TIINDIA.NS,
+TIL,TIL Limited,Unclassified,INE806C01018,False,False,False,TIL.NS,27-SEP-1995
 TIMETECHNO,Time Technoplast Ltd.,Capital Goods,INE508G01029,False,True,True,TIMETECHNO.NS,
 TIMEX,Timex Group India Ltd.,Consumer Durables,INE064A01026,False,True,True,TIMEX.NS,
 TIMKEN,Timken India Ltd.,Capital Goods,INE325A01013,True,True,False,TIMKEN.NS,
@@ -2153,6 +2191,7 @@ TOYAMSL,Toyam Sports Limited,Unclassified,INE457P01020,False,False,False,TOYAMSL
 TPLPLASTEH,TPL Plastech Limited,Unclassified,INE413G01022,False,False,False,TPLPLASTEH.NS,20-MAY-2015
 TRACXN,Tracxn Technologies Limited,Unclassified,INE0HMF01019,False,False,False,TRACXN.NS,20-OCT-2022
 TRANSCOR,Transcorp International Limited,Unclassified,INE330E01023,False,False,False,TRANSCOR.NS,17-AUG-2026
+TRANSPEK,Transpek Industry Limited,Unclassified,INE687A01016,False,False,False,TRANSPEK.NS,20-APR-2026
 TRANSRAILL,Transrail Lighting Ltd.,Capital Goods,INE454P01035,False,True,True,TRANSRAILL.NS,
 TRANSWORLD,TRANSWORLD SHIPPING LINES LIMITED,Unclassified,INE757B01015,False,False,False,TRANSWORLD.NS,01-MAR-1995
 TRAVELFOOD,Travel Food Services Limited,Unclassified,INE103V01028,False,False,False,TRAVELFOOD.NS,14-JUL-2025
@@ -2239,6 +2278,7 @@ VEDAVAAG,VEDAVAAG Systems Limited,Unclassified,INE359B01010,False,False,False,VE
 VEDL,Vedanta Ltd.,Metals & Mining,INE205A01025,True,True,False,VEDL.NS,
 VEDPOWER,Vedanta Power Ltd.,Power,INE694L01019,True,True,False,VEDPOWER.NS,
 VEEDOL,Veedol Corporation Limited,Unclassified,INE484C01030,False,False,False,VEEDOL.NS,16-JAN-2007
+VEEFIN,Veefin Solutions Limited,Unclassified,INE0Q0M01015,False,False,False,VEEFIN.NS,11-NOV-2026
 VEEGALAND,Veegaland Developers Limited,Unclassified,INE1JTV01015,False,False,False,VEEGALAND.NS,18-SEP-2026
 VENKEYS,Venky's (India) Limited,Unclassified,INE398A01010,False,False,False,VENKEYS.NS,28-JUL-2003
 VENTIVE,Ventive Hospitality Limited,Unclassified,INE781S01027,False,False,False,VENTIVE.NS,30-DEC-2024
@@ -2268,8 +2308,8 @@ VINYLINDIA,Vinyl Chemicals (India) Limited,Unclassified,INE250B01029,False,False
 VIPCLOTHNG,VIP Clothing Limited,Unclassified,INE450G01024,False,False,False,VIPCLOTHNG.NS,06-AUG-2007
 VIPIND,V.I.P. Industries Ltd.,Consumer Durables,INE054A01027,False,True,True,VIPIND.NS,
 VIPULLTD,Vipul Limited,Unclassified,INE946H01037,False,False,False,VIPULLTD.NS,23-APR-2015
-VIRAT,Virat Industries Limited,Unclassified,INE467D01017,False,False,False,VIRAT.NS,17-AUG-2026
 VIRINCHI,Virinchi Limited,Unclassified,INE539B01017,False,False,False,VIRINCHI.NS,03-MAY-2023
+VIRTUALG,Virtual Global Education Limited,Unclassified,INE247C01023,False,False,False,VIRTUALG.NS,17-AUG-2026
 VISACHROME,VISA Chrome Limited,Unclassified,INE286H01012,False,False,False,VISACHROME.NS,17-MAR-2006
 VISHAL,Vishal Fabrics Limited,Unclassified,INE755Q01025,False,False,False,VISHAL.NS,17-AUG-2026
 VISHNU,Vishnu Chemicals Limited,Unclassified,INE270I01022,False,False,False,VISHNU.NS,05-MAR-2015
@@ -2348,7 +2388,6 @@ YUKEN,Yuken India Limited,Unclassified,INE384C01016,False,False,False,YUKEN.NS,0
 ZAGGLE,Zaggle Prepaid Ocean Services Ltd.,Information Technology,INE07K301024,False,True,True,ZAGGLE.NS,
 ZEEL,Zee Entertainment Enterprises Ltd.,Media Entertainment & Publication,INE256A01028,True,True,False,ZEEL.NS,
 ZEELEARN,Zee Learn Limited,Unclassified,INE565L01011,False,False,False,ZEELEARN.NS,20-DEC-2010
-ZEEMEDIA,Zee Media Corporation Limited,Unclassified,INE966H01019,False,False,False,ZEEMEDIA.NS,10-JAN-2007
 ZENITHEXPO,Zenith Exports Limited,Unclassified,INE058B01018,False,False,False,ZENITHEXPO.NS,10-JUL-1996
 ZENITHSTL,Zenith Steel Pipes & Industries Limited,Unclassified,INE318D01020,False,False,False,ZENITHSTL.NS,30-APR-2007
 ZENSARTECH,Zensar Technolgies Ltd.,Information Technology,INE520A01027,True,True,False,ZENSARTECH.NS,
